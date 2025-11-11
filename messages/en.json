@@ -1,5 +1,51 @@
 {
+    "Layout": {
+        "header": {
+            "first-item": "Home",
+            "second-item": "Dates",
+            "third-item": "Music",
+            "fourth-item": "Contact"
+        },
+        "footer": {
+            "policies": {
+                "first-item": "PRIVACY POLICY",
+                "second-item": "COOKIES"
+            },
+            "description": "© Copyright Mahmut Orhan 2025. All rights reserved."
+        }
+    },
     "HomePage": {
-        "title": "Hello world!"
+        "title": "Hello world!",
+        "tour": {
+            "title": "TOUR DATES"
+        },
+        "latest-music": {
+            "title": "MUSIC <br></br> LATEST RELEASE."
+        },
+        "form": {
+            "title": "SIGN UP<br></br>FOR UPDATES..",
+            "full-name": "Full Name",
+            "full-name-placeholder": "Your Full Name",
+            "email": "Email",
+            "email-placeholder": "Your E-mail",
+            "birthday": "Birthday",
+            "checkbox": "I would like to receive event and release information from Mahmut Orhan, and can opt out of this at any time by unsubscribing in any email I receive.",
+            "button": "Submit"
+        },
+        "faq": {
+            "title": "CONTACT",
+            "first-item": {
+                "question": "BOOKING CONTACT US, NA, SA, AU, NZ.",
+                "answer": "alex.becket@caa.com"
+            },
+            "second-item": {
+                "question": "BOOKING CONTACT ROW",
+                "answer": "MDSmith@wmeagency.com"
+            },
+            "third-item": {
+                "question": "MANAGEMENT",
+                "answer": "For brand deals you can reach us at azizfiratacar@robinmusicagency.com"
+            }
+        }
     }
 }
