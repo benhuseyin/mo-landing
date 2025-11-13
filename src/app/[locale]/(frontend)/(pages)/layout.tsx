@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "../styles/globals.css";
 import { NextIntlClientProvider } from "next-intl";
+import Header from "../components/Layout/Header";
+import Footer from "../components/Layout/Footer";
 
 type Props = {
   children: React.ReactNode;
@@ -32,7 +34,9 @@ export default function RootLayout({ children, params }: Props) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <Header />
         <NextIntlClientProvider>{children}</NextIntlClientProvider>
+        <Footer />
       </body>
     </html>
   );
