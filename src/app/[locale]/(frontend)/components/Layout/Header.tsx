@@ -9,7 +9,7 @@ const Header = () => {
             <div className="container mx-auto flex justify-between items-center py-4 px-6">
                 <div className="logo">
                     <Link href="/">
-                        <Image src={Logo} alt='Mahmut Orhan Logo' className="h-8 w-auto" />
+                        <Image src={Logo} alt='Mahmut Orhan Logo' className="h-12 w-auto" />
                     </Link>
                 </div>
 
