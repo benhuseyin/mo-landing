@@ -14,14 +14,14 @@ const DesktopHeader = () => {
     return (
         <header
             className={classNames(
-                'md:fixed top-0 left-1/2 -translate-x-1/2 w-full max-w-6xl z-50 hidden',
+                'md:flex md:fixed top-0 left-1/2 -translate-x-1/2 w-full max-w-6xl z-50 hidden',
                 {
                     'backdrop-blur-md shadow-lg border-b border-white/20 top-5 rounded-full animate-fade-in-down': isScrolled,
                     'bg-transparent animate-fade-in': !isScrolled,
                 }
             )}
         >
-            <div className="flex justify-between items-center px-10 py-6">
+            <div className="flex justify-between items-center px-10 py-6 w-full">
                 {/* Logo */}
                 <Link href="/">
                     <Image

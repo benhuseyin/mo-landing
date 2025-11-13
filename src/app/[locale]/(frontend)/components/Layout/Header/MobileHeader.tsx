@@ -1,5 +1,6 @@
 'use client'
 
+import { useState } from "react";
 import classNames from "classnames";
 
 import Image from "next/image";
@@ -9,15 +10,21 @@ import useScroll from "../../../utils/hooks/useScroll";
 
 import Logo from '@/src/assets/icons/mo-logo.svg';
 import HamburgerMenuIcon from '@/src/assets/icons/menu.svg';
+import CloseMenuIcon from '@/src/assets/icons/x.svg';
 import { NavbarItems } from "../../../utils/constants";
 
 const MobileHedaer = () => {
+    const [isShowMenu, setIsShowMenu] = useState(false)
     const { isScrolled } = useScroll();
+
+    const handleToggleMenu = () => {
+        setIsShowMenu(!isShowMenu)
+    }
 
     return (
         <header
             className={classNames(
-                'fixed top-0 left-1/2 -translate-x-1/2 w-full max-w-6xl z-50',
+                'fixed md:hidden top-0 left-1/2 -translate-x-1/2 w-full max-w-6xl z-50',
                 {
                     'backdrop-blur-md shadow-lg border-b border-white/20 top-5 rounded-full animate-fade-in-down': isScrolled,
                     'bg-transparent animate-fade-in': !isScrolled,
@@ -35,7 +42,13 @@ const MobileHedaer = () => {
                     />
                 </Link>
 
-                <Image src={HamburgerMenuIcon} alt="hamburger-icon" className="w-6 h-6 invert" />
+                <Image src={HamburgerMenuIcon} alt="hamburger-icon" className={classNames("w-6 h-6 invert animate-fade-in", {
+                    'hidden': isShowMenu
+                })} onClick={handleToggleMenu} />
+                <Image src={CloseMenuIcon} alt="close-icon" className={classNames("w-6 h-6 invert hidden", {
+                    '!flex animate-fade-in': isShowMenu
+                })} onClick={handleToggleMenu} />
+
 
                 {/* Navigation */}
                 <nav aria-label="Main Navigation" className="hidden">
