@@ -33,7 +33,7 @@ const tourDates = [
 
 export const TourSection = () => {
     return (
-        <section className="py-24 px-4 relative" id="tour">
+        <section className="py-24 px-4 relative bg-[#121212]" id="tour">
             <div className="container mx-auto max-w-6xl">
                 <div className="text-center mb-16 space-y-4">
                     <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 backdrop-blur-sm border border-primary/20">
