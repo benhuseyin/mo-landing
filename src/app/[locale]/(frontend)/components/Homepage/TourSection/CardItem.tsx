@@ -6,6 +6,8 @@ import Calendar from '@/src/assets/icons/calendar.svg'; // <-- import etmeyi unu
 import ExternalLink from '@/src/assets/icons/external-link.svg';
 import Button from "../../Global/Button";
 import { item } from "@/src/types";
+import classNames from "classnames";
+import { TourDateStatus } from "@/src/types/enums";
 
 interface Props {
     item: item;
@@ -22,12 +24,11 @@ const CardItem = ({ item }: Props) => {
                             <span className="font-display text-lg">{item.date}</span>
                         </div>
                         <span
-                            className={`px-3 py-1 rounded-full text-sm font-semibold ${item.status === "Sold Out"
-                                ? "bg-error text-muted-foreground"
-                                : item.status === "Presale"
-                                    ? "bg-warning text-secondary"
-                                    : "bg-success text-primary"
-                                }`}
+                            className={classNames('px-3 py-1 rounded-full text-sm font-semibold', {
+                                "bg-error text-muted-foreground": item.status === TourDateStatus.SOLD_OUT,
+                                "bg-warning text-secondary": item.status === TourDateStatus.PRESALE,
+                                "bg-success text-primary": item.status === TourDateStatus.ON_SALE
+                            })}
                         >
                             {item.status}
                         </span>
@@ -50,7 +51,7 @@ const CardItem = ({ item }: Props) => {
                     <Image src={ExternalLink} alt="external-link" className="w-4 h-4 ml-2 invert" />
                 </Button>
             </CardParent>
-        </CardWrapper>
+        </CardWrapper >
     )
 }
 
