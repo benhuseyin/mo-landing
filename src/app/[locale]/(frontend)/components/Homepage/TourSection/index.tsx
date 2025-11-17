@@ -6,7 +6,7 @@ import Calendar from '@/src/assets/icons/calendar.svg'
 import Map from '@/src/assets/icons/map-pin.svg'
 import ExternalLink from '@/src/assets/icons/external-link.svg'
 import Button from "../../Global/Button";
-import classNames from "classnames";
+import MoBg from "@/src/assets/images/mo-tour.jpg"
 
 const tourDates = [
     {
@@ -37,8 +37,12 @@ const tourDates = [
 
 const TourSection = () => {
     return (
-        <section className="py-24 px-4 relative bg-[#121212]" id="tour">
-            <div className="container mx-auto max-w-6xl">
+        <section className="relative py-24 px-4 bg-no-repeat bg-cover bg-center"
+            style={{ backgroundImage: `url(${MoBg.src})` }}
+        >
+            <div className="absolute inset-0 bg-black/60"></div>
+
+            <div className="container mx-auto max-w-6xl relative z-10">
                 <div className="text-center mb-16 space-y-4">
                     <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 backdrop-blur-sm border border-primary/20">
                         <Image src={Calendar} alt="calendar-icon" className="w-4 h-4 text-primary invert" />
@@ -50,18 +54,38 @@ const TourSection = () => {
                     </p>
                 </div>
 
-                <div className="space-y-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                     {tourDates.map((show, index) => (
                         <div
                             key={index}
-                            className="bg-card/50 backdrop-blur-sm border-border hover:border-primary/50 transition-all duration-300 hover:shadow-card group border-b border-white/10"
+                            className="bg-card/50 backdrop-blur-sm border-border hover:border-primary/50 transition-all duration-300 hover:shadow-card group border border-white/10 rounded-2xl relative
+  rounded-2xl
+  border border-white/20
+  bg-white/10
+  backdrop-blur-xl
+  shadow-[0_8px_32px_rgba(0,0,0,0.15)]
+  hover:bg-white/15
+  hover:border-white/30
+  transition-all duration-300
+"
                         >
-                            <div className="p-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-                                <div className="flex-1 space-y-2">
-                                    <div className="flex items-center gap-3 text-primary font-semibold">
-                                        <Image src={Calendar} alt="calendar-icon" className="w-5 h-5 invert" />
-                                        <span className="font-display text-lg">{show.date}</span>
+                            <div className="p-6 flex flex-col items-start gap-y-5">
+                                <div className="flex-1 space-y-2.5 w-full">
+                                    <div className="flex w-full justify-between">
+                                        <div className="flex gap-x-2.5 text-primary font-semibold">
+                                            <Image src={Calendar} alt="calendar-icon" className="w-5 h-5 invert" />
+                                            <span className="font-display text-lg">{show.date}</span>
+                                        </div>
+                                        <span className={`px-3 py-1 rounded-full text-sm font-semibold ${show.status === "Sold Out"
+                                            ? "bg-[#D64545] text-muted-foreground"
+                                            : show.status === "Presale"
+                                                ? "bg-[#F5C242] text-secondary"
+                                                : "bg-[#4CC9F0] text-primary"
+                                            }`}>
+                                            {show.status}
+                                        </span>
                                     </div>
+
                                     <h3 className="font-display text-2xl font-bold group-hover:text-primary transition-colors">
                                         {show.venue}
                                     </h3>
@@ -71,23 +95,16 @@ const TourSection = () => {
                                     </div>
                                 </div>
 
-                                <div className="flex items-center gap-3">
-                                    <span className={`px-3 py-1 rounded-full text-sm font-semibold ${show.status === "Sold Out"
-                                        ? "bg-[#D64545] text-muted-foreground"
-                                        : show.status === "Presale"
-                                            ? "bg-[#F5C242] text-secondary"
-                                            : "bg-[#4CC9F0] text-primary"
-                                        }`}>
-                                        {show.status}
-                                    </span>
-                                    <Button className="bg-[#00FF82]/50 hover:shadow-glow transition-all"
-                                        disabled={show.status === "Sold Out"}
-                                    >
-                                        Get Tickets
-                                        <Image src={ExternalLink} alt="external-link" className="w-4 h-4 ml-2 invert" />
-                                    </Button>
 
-                                </div>
+
+                                <Button className="bg-[#00FF82]/50 hover:shadow-glow transition-all w-full"
+                                    disabled={show.status === "Sold Out"}
+                                >
+                                    Get Tickets
+                                    <Image src={ExternalLink} alt="external-link" className="w-4 h-4 ml-2 invert" />
+                                </Button>
+
+
                             </div>
                         </div>
                     ))}
