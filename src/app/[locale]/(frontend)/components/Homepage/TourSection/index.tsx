@@ -9,6 +9,7 @@ import ExternalLink from '@/src/assets/icons/external-link.svg'
 import Button from "../../Global/Button";
 import MoBg from "@/src/assets/images/mo-tour.jpg"
 import SectionOverlay from "../../Global/SectionOverlay";
+import SectionWrapper from "../../Global/SectionWrapper";
 
 const tourDates = [
     { date: "DEC 15, 2025", venue: "Tomorrowland Winter", location: "Alpe d'Huez, France", status: "On Sale" },
@@ -42,9 +43,8 @@ const TourSection = () => {
     }
 
     return (
-        <section className="relative py-24 px-4 bg-no-repeat bg-cover bg-center"
-            style={{ backgroundImage: `url(${MoBg.src})` }}
-        >
+
+        <SectionWrapper wrapperStyle={{ backgroundImage: `url(${MoBg.src})` }}>
 
             <SectionOverlay />
 
@@ -169,7 +169,7 @@ const TourSection = () => {
                     Show All
                 </Button>
             </div>
-        </section >
+        </SectionWrapper>
     );
 };
 
