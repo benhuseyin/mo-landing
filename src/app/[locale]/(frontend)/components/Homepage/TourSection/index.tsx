@@ -12,6 +12,7 @@ import SectionOverlay from "../../Global/SectionOverlay";
 import SectionWrapper from "../../Global/SectionWrapper";
 import CardWrapper from "./CardWrapper";
 import CardParent from "./CardParent";
+import SectionParent from "../../Global/SectionParent";
 
 const tourDates = [
     { date: "DEC 15, 2025", venue: "Tomorrowland Winter", location: "Alpe d'Huez, France", status: "On Sale" },
@@ -49,11 +50,19 @@ const TourSection = () => {
 
     return (
 
-        <SectionWrapper wrapperStyle={{ backgroundImage: `url(${MoBg.src})` }}>
+        <SectionWrapper>
+            <Image
+                src={MoBg}
+                alt="Mahmut Orhan Tour Dates Section Background Image"
+                fill
+                className="object-cover object-center"
+                priority={false}
+                placeholder="blur"
+            />
 
             <SectionOverlay />
 
-            <div className="container mx-auto max-w-6xl relative z-10">
+            <SectionParent>
                 <div className="text-center mb-16 space-y-4">
                     <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 backdrop-blur-sm border border-primary/20">
                         <Image src={Calendar} alt="calendar-icon" className="w-4 h-4 text-primary invert" />
@@ -97,7 +106,8 @@ const TourSection = () => {
                                     </div>
                                 </div>
 
-                                <Button className="bg-[#00FF82]/50 hover:shadow-glow transition-all w-full"
+                                <Button
+                                    className="bg-[#00FF82]/50 hover:shadow-glow transition-all w-full"
                                     disabled={show.status === "Sold Out"}
                                 >
                                     Get Tickets
@@ -112,26 +122,11 @@ const TourSection = () => {
                 <Button
                     onClick={handleShowAllTourCard}
                     className="
-                    mt-5
-    relative
-    !bg-green-300/20
-    backdrop-blur-3xl
-    border border-green-400/30
-    text-white
-    font-semibold
-    w-fit
-    shadow-[0_8px_32px_rgba(34,197,94,0.25)]
-    shadow-green-500/30
-    hover:!bg-green-500/50
-    hover:shadow-[0_8px_32px_rgba(34,197,94,0.45)]
-    transition-all
-    duration-300
-    mx-auto
-  "
+                    mt-5 relative !bg-green-300/20 backdrop-blur-3xl border border-green-400/30 text-white font-semibold w-fit shadow-[0_8px_32px_rgba(34,197,94,0.25)] shadow-green-500/30 hover:!bg-green-500/50 hover:shadow-[0_8px_32px_rgba(34,197,94,0.45)] transition-all duration-300 mx-auto"
                 >
                     Show All
                 </Button>
-            </div>
+            </SectionParent>
         </SectionWrapper>
     );
 };
