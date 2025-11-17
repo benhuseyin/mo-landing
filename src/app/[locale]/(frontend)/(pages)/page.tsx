@@ -1,7 +1,7 @@
 import { useTranslations } from "next-intl";
-import HeroSection from "../components/HeroSection";
-import LatestMusicsSection from "../components/LatestMusicsSection";
-import { TourSection } from "../components/TourSection";
+import LatestMusicsSection from "../components/Homepage/LatestMusicsSection";
+import HeroSection from "../components/Homepage/HeroSection";
+import TourSection from "../components/Homepage/TourSection";
 
 export default function Home() {
   const t = useTranslations('HomePage');

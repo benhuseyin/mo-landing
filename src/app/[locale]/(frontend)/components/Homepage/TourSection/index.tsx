@@ -1,8 +1,12 @@
+'use client'
+
 import Image from "next/image";
 
 import Calendar from '@/src/assets/icons/calendar.svg'
 import Map from '@/src/assets/icons/map-pin.svg'
 import ExternalLink from '@/src/assets/icons/external-link.svg'
+import Button from "../../Global/Button";
+import classNames from "classnames";
 
 const tourDates = [
     {
@@ -31,7 +35,7 @@ const tourDates = [
     }
 ];
 
-export const TourSection = () => {
+const TourSection = () => {
     return (
         <section className="py-24 px-4 relative bg-[#121212]" id="tour">
             <div className="container mx-auto max-w-6xl">
@@ -50,7 +54,7 @@ export const TourSection = () => {
                     {tourDates.map((show, index) => (
                         <div
                             key={index}
-                            className="bg-card/50 backdrop-blur-sm border-border hover:border-primary/50 transition-all duration-300 hover:shadow-card group"
+                            className="bg-card/50 backdrop-blur-sm border-border hover:border-primary/50 transition-all duration-300 hover:shadow-card group border-b border-white/10"
                         >
                             <div className="p-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
                                 <div className="flex-1 space-y-2">
@@ -62,32 +66,35 @@ export const TourSection = () => {
                                         {show.venue}
                                     </h3>
                                     <div className="flex items-center gap-2 text-muted-foreground">
-                                        <Image src={Map} alt="map-icon" className="w-4 h-4" />
+                                        <Image src={Map} alt="map-icon" className="w-4 h-4 invert" />
                                         <span>{show.location}</span>
                                     </div>
                                 </div>
 
                                 <div className="flex items-center gap-3">
                                     <span className={`px-3 py-1 rounded-full text-sm font-semibold ${show.status === "Sold Out"
-                                        ? "bg-muted text-muted-foreground"
+                                        ? "bg-[#D64545] text-muted-foreground"
                                         : show.status === "Presale"
-                                            ? "bg-secondary/20 text-secondary"
-                                            : "bg-primary/20 text-primary"
+                                            ? "bg-[#F5C242] text-secondary"
+                                            : "bg-[#4CC9F0] text-primary"
                                         }`}>
                                         {show.status}
                                     </span>
-                                    {show.status !== "Sold Out" && (
-                                        <button className="bg-gradient-primary hover:shadow-glow transition-all">
-                                            Get Tickets
-                                            <Image src={ExternalLink} alt="external-link" className="w-4 h-4 ml-2" />
-                                        </button>
-                                    )}
+                                    <Button className="bg-[#00FF82]/50 hover:shadow-glow transition-all"
+                                        disabled={show.status === "Sold Out"}
+                                    >
+                                        Get Tickets
+                                        <Image src={ExternalLink} alt="external-link" className="w-4 h-4 ml-2 invert" />
+                                    </Button>
+
                                 </div>
                             </div>
                         </div>
                     ))}
                 </div>
             </div>
-        </section>
+        </section >
     );
 };
+
+export default TourSection

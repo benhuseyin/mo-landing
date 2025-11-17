@@ -1,3 +1,4 @@
+import classNames from 'classnames'
 import { ComponentProps, MouseEvent, ReactNode } from 'react'
 import { twMerge } from 'tailwind-merge'
 
@@ -8,6 +9,7 @@ interface Props {
     loadingIcon?: ReactNode
     buttonRef?: React.RefObject<HTMLButtonElement>
     stopPropagation?: boolean
+    disabled?: boolean
     onClick?: (event: MouseEvent<HTMLButtonElement>) => void
 }
 
@@ -19,22 +21,26 @@ const Button = ({
     loadingIcon,
     buttonRef,
     stopPropagation = true,
+    disabled,
     onClick,
     ...otherProps
 }: Props & Omit<ComponentProps<'button'>, 'content'>) => {
     return (
         <button
             ref={buttonRef}
+            disabled={disabled}
             onClick={(event) => {
                 if (stopPropagation) {
                     event.stopPropagation()
                 }
                 onClick?.(event)
             }}
-            className={twMerge(
-                'flex w-full items-center justify-center whitespace-nowrap rounded-[10px] bg-magic p-4 font-secondary text-sm font-bold leading-6 text-white transition-all disabled:cursor-not-allowed disabled:bg-gray-300 disabled:text-white sm:text-base',
+            className={classNames((twMerge(
+                'flex items-center justify-center whitespace-nowrap rounded-[10px] bg-magic font-secondary text-sm font-bold leading-6 text-white transition-all disabled:cursor-not-allowed disabled:bg-gray-300 disabled:text-white sm:text-base h-11 min-w-[128px] cursor-pointer',
                 className,
-            )}
+            )), {
+                '!bg-[#D64545]': disabled
+            })}
             {...otherProps}
         >
             {prefixIcon && prefixIcon}
