@@ -2,7 +2,7 @@ import Image from "next/image";
 import CardParent from "./CardParent";
 import CardWrapper from "./CardWrapper";
 import Map from '@/src/assets/icons/map-pin.svg';
-import Calendar from '@/src/assets/icons/calendar.svg'; // <-- import etmeyi unutma
+import Calendar from '@/src/assets/icons/calendar.svg';
 import ExternalLink from '@/src/assets/icons/external-link.svg';
 import Button from "../../Global/Button";
 import { item } from "@/src/types";
@@ -44,7 +44,7 @@ const CardItem = ({ item }: Props) => {
                 </div>
 
                 <Button
-                    className="bg-[#00FF82]/50 hover:shadow-glow transition-all w-full"
+                    className="bg-success/50 hover:shadow-glow transition-all w-full"
                     disabled={item.status === "Sold Out"}
                 >
                     Get Tickets
