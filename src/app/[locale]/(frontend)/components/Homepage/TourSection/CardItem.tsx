@@ -23,10 +23,10 @@ const CardItem = ({ item }: Props) => {
                         </div>
                         <span
                             className={`px-3 py-1 rounded-full text-sm font-semibold ${item.status === "Sold Out"
-                                ? "bg-[#D64545] text-muted-foreground"
+                                ? "bg-error text-muted-foreground"
                                 : item.status === "Presale"
-                                    ? "bg-[#F5C242] text-secondary"
-                                    : "bg-[#16A34A] text-primary"
+                                    ? "bg-warning text-secondary"
+                                    : "bg-success text-primary"
                                 }`}
                         >
                             {item.status}
