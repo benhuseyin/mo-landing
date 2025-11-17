@@ -77,7 +77,7 @@ const TourSection = () => {
                                                 ? "bg-[#D64545] text-muted-foreground"
                                                 : show.status === "Presale"
                                                     ? "bg-[#F5C242] text-secondary"
-                                                    : "bg-[#4CC9F0] text-primary"
+                                                    : "bg-[#16A34A] text-primary"
                                                 }`}>
                                                 {show.status}
                                             </span>
@@ -115,7 +115,7 @@ const TourSection = () => {
                                                     ? "bg-[#D64545] text-muted-foreground"
                                                     : show.status === "Presale"
                                                         ? "bg-[#F5C242] text-secondary"
-                                                        : "bg-[#4CC9F0] text-primary"
+                                                        : "bg-[#16A34A] text-primary"
                                                     }`}>
                                                     {show.status}
                                                 </span>
