@@ -8,6 +8,7 @@ import Map from '@/src/assets/icons/map-pin.svg'
 import ExternalLink from '@/src/assets/icons/external-link.svg'
 import Button from "../../Global/Button";
 import MoBg from "@/src/assets/images/mo-tour.jpg"
+import SectionOverlay from "../../Global/SectionOverlay";
 
 const tourDates = [
     { date: "DEC 15, 2025", venue: "Tomorrowland Winter", location: "Alpe d'Huez, France", status: "On Sale" },
@@ -44,7 +45,8 @@ const TourSection = () => {
         <section className="relative py-24 px-4 bg-no-repeat bg-cover bg-center"
             style={{ backgroundImage: `url(${MoBg.src})` }}
         >
-            <div className="absolute inset-0 bg-black/60"></div>
+
+            <SectionOverlay />
 
             <div className="container mx-auto max-w-6xl relative z-10">
                 <div className="text-center mb-16 space-y-4">
