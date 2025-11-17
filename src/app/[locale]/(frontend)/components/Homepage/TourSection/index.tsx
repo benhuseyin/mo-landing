@@ -11,6 +11,7 @@ import MoBg from "@/src/assets/images/mo-tour.jpg"
 import SectionOverlay from "../../Global/SectionOverlay";
 import SectionWrapper from "../../Global/SectionWrapper";
 import CardWrapper from "./CardWrapper";
+import CardParent from "./CardParent";
 
 const tourDates = [
     { date: "DEC 15, 2025", venue: "Tomorrowland Winter", location: "Alpe d'Huez, France", status: "On Sale" },
@@ -69,9 +70,8 @@ const TourSection = () => {
                     {visibleDates.map((show, index) => (
                         <CardWrapper
                             key={index}
-                            className="bg-card/50 backdrop-blur-sm border-border hover:border-primary/50 transition-all duration-300 hover:shadow-card group border border-white/20 rounded-2xl relative bg-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.15)] hover:bg-white/15 hover:border-white/30"
                         >
-                            <div className="p-6 flex flex-col items-start gap-y-5">
+                            <CardParent>
                                 <div className="flex-1 space-y-2.5 w-full">
                                     <div className="flex w-full justify-between">
                                         <div className="flex gap-x-2.5 text-primary font-semibold">
@@ -103,7 +103,7 @@ const TourSection = () => {
                                     Get Tickets
                                     <Image src={ExternalLink} alt="external-link" className="w-4 h-4 ml-2 invert" />
                                 </Button>
-                            </div>
+                            </CardParent>
                         </CardWrapper>
 
                     ))}
