@@ -9,31 +9,28 @@ import Button from "../../Global/Button";
 import MoBg from "@/src/assets/images/mo-tour.jpg"
 
 const tourDates = [
-    {
-        date: "DEC 15, 2025",
-        venue: "Tomorrowland Winter",
-        location: "Alpe d'Huez, France",
-        status: "On Sale"
-    },
-    {
-        date: "JAN 20, 2026",
-        venue: "Ministry of Sound",
-        location: "London, UK",
-        status: "Sold Out"
-    },
-    {
-        date: "FEB 10, 2026",
-        venue: "Amnesia Ibiza",
-        location: "Ibiza, Spain",
-        status: "On Sale"
-    },
-    {
-        date: "MAR 05, 2026",
-        venue: "Fabric",
-        location: "London, UK",
-        status: "Presale"
-    }
+    { date: "DEC 15, 2025", venue: "Tomorrowland Winter", location: "Alpe d'Huez, France", status: "On Sale" },
+    { date: "JAN 20, 2026", venue: "Ministry of Sound", location: "London, UK", status: "Sold Out" },
+    { date: "FEB 10, 2026", venue: "Amnesia Ibiza", location: "Ibiza, Spain", status: "On Sale" },
+    { date: "MAR 05, 2026", venue: "Fabric", location: "London, UK", status: "Presale" },
+    { date: "MAR 20, 2026", venue: "Pacha", location: "Ibiza, Spain", status: "On Sale" },
+    { date: "APR 01, 2026", venue: "Zouk", location: "Singapore", status: "On Sale" },
+    { date: "APR 15, 2026", venue: "Hï Ibiza", location: "Ibiza, Spain", status: "Presale" },
+    { date: "MAY 05, 2026", venue: "Output", location: "New York, USA", status: "Sold Out" },
+    { date: "MAY 20, 2026", venue: "Berghain", location: "Berlin, Germany", status: "On Sale" },
+    { date: "JUN 01, 2026", venue: "DC-10", location: "Ibiza, Spain", status: "On Sale" },
+    { date: "JUN 15, 2026", venue: "Amnesia Ibiza", location: "Ibiza, Spain", status: "Presale" },
+    { date: "JUL 01, 2026", venue: "Space", location: "Ibiza, Spain", status: "On Sale" },
+    { date: "JUL 15, 2026", venue: "Privilege", location: "Ibiza, Spain", status: "Sold Out" },
+    { date: "AUG 01, 2026", venue: "Ministry of Sound", location: "London, UK", status: "On Sale" },
+    { date: "AUG 15, 2026", venue: "Fabric", location: "London, UK", status: "Presale" },
+    { date: "SEP 01, 2026", venue: "Zouk", location: "Singapore", status: "On Sale" },
+    { date: "SEP 15, 2026", venue: "Pacha", location: "Ibiza, Spain", status: "On Sale" },
+    { date: "OCT 01, 2026", venue: "Berghain", location: "Berlin, Germany", status: "Presale" },
+    { date: "OCT 15, 2026", venue: "Output", location: "New York, USA", status: "On Sale" },
+    { date: "NOV 01, 2026", venue: "Tomorrowland Winter", location: "Alpe d'Huez, France", status: "Sold Out" }
 ];
+
 
 const TourSection = () => {
     return (
