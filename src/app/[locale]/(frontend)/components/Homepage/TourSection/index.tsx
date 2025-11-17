@@ -4,6 +4,8 @@ import Image from "next/image";
 import { useState } from "react";
 
 import Calendar from '@/src/assets/icons/calendar.svg'
+import Map from '@/src/assets/icons/map-pin.svg'
+
 
 import Button from "../../Global/Button";
 import MoBg from "@/src/assets/images/mo-tour.jpg"
@@ -36,8 +38,17 @@ const tourDates = [
 ];
 
 
+
 const TourSection = () => {
     const [showAllTourCard, setShowAllTourCard] = useState(false);
+    const [day, setDay] = useState<number | string>("");
+
+
+    const days = Array.from({ length: 31 }).map((_, i) => ({
+        label: `${i + 1}`,
+        value: i + 1
+    }));
+
 
     const handleShowAllTourCard = () => {
         setShowAllTourCard(!showAllTourCard);
@@ -47,7 +58,6 @@ const TourSection = () => {
 
 
     return (
-
         <SectionWrapper>
             <Image
                 src={MoBg}
@@ -72,20 +82,19 @@ const TourSection = () => {
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div className="flex items-center gap-x-2.5">
 
-
-                    <CardItems items={visibleDates} />
-
-
+                    <Button
+                        onClick={handleShowAllTourCard}
+                        className="relative !bg-green-300/20 backdrop-blur-3xl border border-green-400/30 text-white font-semibold w-fit shadow-[0_8px_32px_rgba(34,197,94,0.25)] shadow-green-500/30 hover:!bg-green-500/50 hover:shadow-[0_8px_32px_rgba(34,197,94,0.45)] transition-all duration-300 mx-auto"
+                    >
+                        Show All
+                    </Button>
                 </div>
-                <Button
-                    onClick={handleShowAllTourCard}
-                    className="
-                    mt-5 relative !bg-green-300/20 backdrop-blur-3xl border border-green-400/30 text-white font-semibold w-fit shadow-[0_8px_32px_rgba(34,197,94,0.25)] shadow-green-500/30 hover:!bg-green-500/50 hover:shadow-[0_8px_32px_rgba(34,197,94,0.45)] transition-all duration-300 mx-auto"
-                >
-                    Show All
-                </Button>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <CardItems items={visibleDates} />
+                </div>
             </SectionParent>
         </SectionWrapper>
     );
