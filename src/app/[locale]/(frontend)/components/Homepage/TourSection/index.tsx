@@ -10,6 +10,7 @@ import Button from "../../Global/Button";
 import MoBg from "@/src/assets/images/mo-tour.jpg"
 import SectionOverlay from "../../Global/SectionOverlay";
 import SectionWrapper from "../../Global/SectionWrapper";
+import CardWrapper from "./CardWrapper";
 
 const tourDates = [
     { date: "DEC 15, 2025", venue: "Tomorrowland Winter", location: "Alpe d'Huez, France", status: "On Sale" },
@@ -42,6 +43,9 @@ const TourSection = () => {
         setShowAllTourCard(!showAllTourCard);
     }
 
+    const visibleDates = showAllTourCard ? tourDates : tourDates.slice(0, 6);
+
+
     return (
 
         <SectionWrapper wrapperStyle={{ backgroundImage: `url(${MoBg.src})` }}>
@@ -62,88 +66,47 @@ const TourSection = () => {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
 
-                    {tourDates.map((show, index) => {
-                        return (
-                            showAllTourCard ? <div
-                                key={index}
-                                className="bg-card/50 backdrop-blur-sm border-border hover:border-primary/50 transition-all duration-300 hover:shadow-card group border border-white/20 rounded-2xl relative bg-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.15)] hover:bg-white/15 hover:border-white/30"
-                            >
-                                <div className="p-6 flex flex-col items-start gap-y-5">
-                                    <div className="flex-1 space-y-2.5 w-full">
-                                        <div className="flex w-full justify-between">
-                                            <div className="flex gap-x-2.5 text-primary font-semibold">
-                                                <Image src={Calendar} alt="calendar-icon" className="w-5 h-5 invert" />
-                                                <span className="font-display text-lg">{show.date}</span>
-                                            </div>
-                                            <span className={`px-3 py-1 rounded-full text-sm font-semibold ${show.status === "Sold Out"
-                                                ? "bg-[#D64545] text-muted-foreground"
-                                                : show.status === "Presale"
-                                                    ? "bg-[#F5C242] text-secondary"
-                                                    : "bg-[#16A34A] text-primary"
-                                                }`}>
-                                                {show.status}
-                                            </span>
+                    {visibleDates.map((show, index) => (
+                        <CardWrapper
+                            key={index}
+                            className="bg-card/50 backdrop-blur-sm border-border hover:border-primary/50 transition-all duration-300 hover:shadow-card group border border-white/20 rounded-2xl relative bg-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.15)] hover:bg-white/15 hover:border-white/30"
+                        >
+                            <div className="p-6 flex flex-col items-start gap-y-5">
+                                <div className="flex-1 space-y-2.5 w-full">
+                                    <div className="flex w-full justify-between">
+                                        <div className="flex gap-x-2.5 text-primary font-semibold">
+                                            <Image src={Calendar} alt="calendar-icon" className="w-5 h-5 invert" />
+                                            <span className="font-display text-lg">{show.date}</span>
                                         </div>
-
-                                        <h3 className="font-display text-2xl font-bold group-hover:text-primary transition-colors">
-                                            {show.venue}
-                                        </h3>
-                                        <div className="flex items-center gap-2 text-muted-foreground">
-                                            <Image src={Map} alt="map-icon" className="w-4 h-4 invert" />
-                                            <span>{show.location}</span>
-                                        </div>
+                                        <span className={`px-3 py-1 rounded-full text-sm font-semibold ${show.status === "Sold Out"
+                                            ? "bg-[#D64545] text-muted-foreground"
+                                            : show.status === "Presale"
+                                                ? "bg-[#F5C242] text-secondary"
+                                                : "bg-[#16A34A] text-primary"
+                                            }`}>
+                                            {show.status}
+                                        </span>
                                     </div>
 
-                                    <Button className="bg-[#00FF82]/50 hover:shadow-glow transition-all w-full"
-                                        disabled={show.status === "Sold Out"}
-                                    >
-                                        Get Tickets
-                                        <Image src={ExternalLink} alt="external-link" className="w-4 h-4 ml-2 invert" />
-                                    </Button>
+                                    <h3 className="font-display text-2xl font-bold group-hover:text-primary transition-colors">
+                                        {show.venue}
+                                    </h3>
+                                    <div className="flex items-center gap-2 text-muted-foreground">
+                                        <Image src={Map} alt="map-icon" className="w-4 h-4 invert" />
+                                        <span>{show.location}</span>
+                                    </div>
                                 </div>
-                            </div> :
-                                index < 6 && <div
-                                    key={index}
-                                    className="bg-card/50 backdrop-blur-sm border-border hover:border-primary/50 transition-all duration-300 hover:shadow-card group border border-white/20 rounded-2xl relative bg-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.15)] hover:bg-white/15 hover:border-white/30"
+
+                                <Button className="bg-[#00FF82]/50 hover:shadow-glow transition-all w-full"
+                                    disabled={show.status === "Sold Out"}
                                 >
-                                    <div className="p-6 flex flex-col items-start gap-y-5">
-                                        <div className="flex-1 space-y-2.5 w-full">
-                                            <div className="flex w-full justify-between">
-                                                <div className="flex gap-x-2.5 text-primary font-semibold">
-                                                    <Image src={Calendar} alt="calendar-icon" className="w-5 h-5 invert" />
-                                                    <span className="font-display text-lg">{show.date}</span>
-                                                </div>
-                                                <span className={`px-3 py-1 rounded-full text-sm font-semibold ${show.status === "Sold Out"
-                                                    ? "bg-[#D64545] text-muted-foreground"
-                                                    : show.status === "Presale"
-                                                        ? "bg-[#F5C242] text-secondary"
-                                                        : "bg-[#16A34A] text-primary"
-                                                    }`}>
-                                                    {show.status}
-                                                </span>
-                                            </div>
+                                    Get Tickets
+                                    <Image src={ExternalLink} alt="external-link" className="w-4 h-4 ml-2 invert" />
+                                </Button>
+                            </div>
+                        </CardWrapper>
 
-                                            <h3 className="font-display text-2xl font-bold group-hover:text-primary transition-colors">
-                                                {show.venue}
-                                            </h3>
-                                            <div className="flex items-center gap-2 text-muted-foreground">
-                                                <Image src={Map} alt="map-icon" className="w-4 h-4 invert" />
-                                                <span>{show.location}</span>
-                                            </div>
-                                        </div>
-
-                                        <Button className="bg-[#00FF82]/50 hover:shadow-glow transition-all w-full"
-                                            disabled={show.status === "Sold Out"}
-                                        >
-                                            Get Tickets
-                                            <Image src={ExternalLink} alt="external-link" className="w-4 h-4 ml-2 invert" />
-                                        </Button>
-                                    </div>
-                                </div>
-
-                        )
-                    }
-                    )}
+                    ))}
 
                 </div>
                 <Button
