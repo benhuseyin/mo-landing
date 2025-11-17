@@ -32,7 +32,7 @@ const Button = ({
                 onClick?.(event)
             }}
             className={twMerge(
-                'flex items-center justify-center whitespace-nowrap rounded-[10px] bg-magic font-secondary text-sm font-bold leading-6 text-white transition-all disabled:cursor-not-allowed disabled:!bg-gray-300 disabled:text-white sm:text-base h-11 min-w-[128px] cursor-pointer !bg-[#22C55E] hover:!bg-[#16a34a] duration-300 shadow-md hover:shadow-lg',
+                'flex items-center justify-center whitespace-nowrap !rounded-lg bg-magic font-secondary text-sm font-bold leading-6 text-white transition-all disabled:cursor-not-allowed disabled:!bg-gray-300 disabled:text-white sm:text-base h-11 min-w-[128px] cursor-pointer !bg-[#22C55E] hover:!bg-[#16a34a] duration-300 shadow-md hover:shadow-lg',
                 className,
             )}
             {...otherProps}
