@@ -123,7 +123,7 @@ export default function DatePicker({
                 onClick={toggle}
                 disabled={disabled}
                 className={twMerge(
-                    "w-full h-11 px-3 flex items-center justify-between rounded-lg border border-white/20 bg-white/10 backdrop-blur-sm text-white text-sm font-medium shadow-sm transition-all hover:border-white/40 w-[320px] cursor-pointer",
+                    "w-full h-11 px-3 flex items-center justify-between rounded-lg border border-white/20 bg-white/10 backdrop-blur-sm text-white text-sm font-medium shadow-sm transition-all hover:border-white/40 w-[320px] !cursor-pointer",
                     disabled ? "opacity-60 cursor-not-allowed" : "hover:!bg-[#f0fff6]/5",
                 )}
             >
@@ -136,7 +136,6 @@ export default function DatePicker({
                         { 'rotate-180': open }
                     )}
                 />
-
             </button>
 
             {open && (

@@ -14,6 +14,10 @@ import SectionWrapper from "../../Global/SectionWrapper";
 import SectionParent from "../../Global/SectionParent";
 import CardItems from "./CardItems";
 import DatePicker from "../../Global/DatePicker";
+import { formatDate } from "../../../utils/helpers/functions";
+
+import XIcon from '@/src/assets/icons/x.svg'
+import classNames from "classnames";
 
 const tourDates = [
     { date: "2025-12-15", venue: "Tomorrowland Winter", location: "Alpe d'Huez, France", status: "On Sale" },
@@ -32,25 +36,28 @@ const TourSection = () => {
     const [showAllTourCard, setShowAllTourCard] = useState(false);
     const [dateIso, setDateIso] = useState<string | null>(null);
 
-
-    const days = Array.from({ length: 31 }).map((_, i) => ({
-        label: `${i + 1}`,
-        value: i + 1
-    }));
-
-
     const handleShowAllTourCard = () => {
         setShowAllTourCard(!showAllTourCard);
     }
 
+    const handleSetFilterDate = (iso: string) => {
+        setDateIso(iso)
+    }
+
+    const handleResetFilter = () => {
+        setDateIso(null)
+    }
+
     const visibleDates = showAllTourCard ? tourDates : tourDates.slice(0, 6);
 
-    const filteredDates = visibleDates.filter((date) => {
+    const filteredDates = tourDates.filter((date) => {
         if (!dateIso) return date
         return (
             date.date >= dateIso
         )
     })
+
+    const shownItems = dateIso ? filteredDates : visibleDates
 
     return (
         <SectionWrapper>
@@ -78,20 +85,34 @@ const TourSection = () => {
                 </div>
 
                 <div className="flex items-center justify-end gap-x-2.5">
-                    <div className="max-w-sm">
-                        <DatePicker value={dateIso} onChange={(iso) => setDateIso(iso)} />
+                    <div className={classNames("transition-all duration-300", {
+                        "relative bg-green-200/20 border border-green-400/30 text-white font-semibold w-fit shadow-[0_8px_32px_rgba(34,197,94,0.25)] shadow-green-500/30 p-5 rounded-2xl z-50 space-y-5": dateIso
+                    })}>
+                        <div className="flex gap-x-2.5">
+                            <DatePicker value={dateIso} onChange={(iso) => handleSetFilterDate(iso)} />
+                            {dateIso &&
+                                <Button className="!bg-error/50 hover:!bg-error/60 text-white/75 cursor-pointer !min-w-10 !h-10 !rounded-full" onClick={handleResetFilter}>
+                                    <Image src={XIcon} alt="x-icon" className="invert !size-4 !cursor-pointer" />
+                                </Button>}
+                        </div>
+                        {dateIso && <p className="text-sm pl-1">You are filtering dates starting from: <span className="font-bold underline underline-offset-2">{formatDate(dateIso)}</span></p>}
                     </div>
-                    <Button
-                        onClick={handleShowAllTourCard}
-                        className="relative !bg-green-300/20 backdrop-blur-3xl border border-green-400/30 text-white font-semibold w-fit shadow-[0_8px_32px_rgba(34,197,94,0.25)] shadow-green-500/30 hover:!bg-green-500/50 hover:shadow-[0_8px_32px_rgba(34,197,94,0.45)] transition-all duration-300"
-                    >
-                        Show All
-                    </Button>
+
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                    <CardItems items={filteredDates} />
+                    <CardItems items={shownItems} />
                 </div>
+
+                {!dateIso &&
+
+                    <Button
+                        onClick={handleShowAllTourCard}
+                        className="relative !bg-green-300/20 backdrop-blur-3xl border border-green-400/30 text-white font-semibold w-fit shadow-[0_8px_32px_rgba(34,197,94,0.25)] shadow-green-500/30 hover:!bg-green-500/50 hover:shadow-[0_8px_32px_rgba(34,197,94,0.45)] transition-all duration-300 mx-auto"
+                    >
+                        Show All
+                    </Button>
+                }
             </SectionParent>
         </SectionWrapper>
     );
