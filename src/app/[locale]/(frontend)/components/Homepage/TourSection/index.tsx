@@ -45,6 +45,13 @@ const TourSection = () => {
 
     const visibleDates = showAllTourCard ? tourDates : tourDates.slice(0, 6);
 
+    const filteredDates = visibleDates.filter((date) => {
+        if (!dateIso) return date
+        return (
+            date.date >= dateIso
+        )
+    })
+
     return (
         <SectionWrapper>
             <Image
@@ -83,7 +90,7 @@ const TourSection = () => {
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                    <CardItems items={visibleDates} />
+                    <CardItems items={filteredDates} />
                 </div>
             </SectionParent>
         </SectionWrapper>
