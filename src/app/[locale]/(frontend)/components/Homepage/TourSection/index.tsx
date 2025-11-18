@@ -120,11 +120,12 @@ const TourSection = () => {
                         <div className="flex gap-x-2.5">
                             <DatePicker value={dateIso} onChange={(iso) => handleSetFilterDate(iso)} />
                             {dateIso &&
-                                <Button className="!bg-error/50 hover:!bg-error/60 text-white/75 cursor-pointer !min-w-10 !h-10 !rounded-full" onClick={handleResetFilter}>
+                                <Button className="!bg-error/70 hover:!bg-error/80 sm:!bg-error/50 sm:hover:!bg-error/60 text-white/75 cursor-pointer !min-w-8 !h-8 sm:!min-w-10 sm:!h-10 !rounded-full absolute -top-4.5 left-1/2 -translate-x-1/2" onClick={handleResetFilter}>
                                     <Image src={XIcon} alt="x-icon" className="invert !size-4 !cursor-pointer" />
-                                </Button>}
+                                </Button>
+                            }
                         </div>
-                        {dateIso && <p className="text-sm pl-1">You are filtering dates starting from: <span className="font-bold underline underline-offset-2">{formatDate(dateIso)}</span></p>}
+                        {dateIso && <p className="text-center sm:text-left text-sm pl-1">You are filtering dates starting from: <span className="font-bold underline underline-offset-4 block sm:inline-block">{formatDate(dateIso)}</span></p>}
                     </div>
 
                 </div>
