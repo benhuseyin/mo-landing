@@ -8,12 +8,14 @@ import Button from "../../Global/Button";
 import { item } from "@/src/types";
 import classNames from "classnames";
 import { TourDateStatus } from "@/src/types/enums";
+import { formatDate } from "../../../utils/helpers/functions";
 
 interface Props {
     item: item;
 }
 
 const CardItem = ({ item }: Props) => {
+
     return (
         <CardWrapper>
             <CardParent>
@@ -21,7 +23,7 @@ const CardItem = ({ item }: Props) => {
                     <div className="flex w-full justify-between">
                         <div className="flex gap-x-2.5 text-primary font-semibold">
                             <Image src={Calendar} alt="calendar-icon" className="w-5 h-5 invert" />
-                            <span className="font-display text-lg">{item.date}</span>
+                            <span className="font-display text-lg">{formatDate(item.date)}</span>
                         </div>
                         <span
                             className={classNames('px-3 py-1 rounded-full text-sm font-semibold', {

@@ -16,29 +16,17 @@ import CardItems from "./CardItems";
 import DatePicker from "../../Global/DatePicker";
 
 const tourDates = [
-    { date: "DEC 15, 2025", venue: "Tomorrowland Winter", location: "Alpe d'Huez, France", status: "On Sale" },
-    { date: "JAN 20, 2026", venue: "Ministry of Sound", location: "London, UK", status: "Sold Out" },
-    { date: "FEB 10, 2026", venue: "Amnesia Ibiza", location: "Ibiza, Spain", status: "On Sale" },
-    { date: "MAR 05, 2026", venue: "Fabric", location: "London, UK", status: "Presale" },
-    { date: "MAR 20, 2026", venue: "Pacha", location: "Ibiza, Spain", status: "On Sale" },
-    { date: "APR 01, 2026", venue: "Zouk", location: "Singapore", status: "On Sale" },
-    { date: "APR 15, 2026", venue: "Hï Ibiza", location: "Ibiza, Spain", status: "Presale" },
-    { date: "MAY 05, 2026", venue: "Output", location: "New York, USA", status: "Sold Out" },
-    { date: "MAY 20, 2026", venue: "Berghain", location: "Berlin, Germany", status: "On Sale" },
-    { date: "JUN 01, 2026", venue: "DC-10", location: "Ibiza, Spain", status: "On Sale" },
-    { date: "JUN 15, 2026", venue: "Amnesia Ibiza", location: "Ibiza, Spain", status: "Presale" },
-    { date: "JUL 01, 2026", venue: "Space", location: "Ibiza, Spain", status: "On Sale" },
-    { date: "JUL 15, 2026", venue: "Privilege", location: "Ibiza, Spain", status: "Sold Out" },
-    { date: "AUG 01, 2026", venue: "Ministry of Sound", location: "London, UK", status: "On Sale" },
-    { date: "AUG 15, 2026", venue: "Fabric", location: "London, UK", status: "Presale" },
-    { date: "SEP 01, 2026", venue: "Zouk", location: "Singapore", status: "On Sale" },
-    { date: "SEP 15, 2026", venue: "Pacha", location: "Ibiza, Spain", status: "On Sale" },
-    { date: "OCT 01, 2026", venue: "Berghain", location: "Berlin, Germany", status: "Presale" },
-    { date: "OCT 15, 2026", venue: "Output", location: "New York, USA", status: "On Sale" },
-    { date: "NOV 01, 2026", venue: "Tomorrowland Winter", location: "Alpe d'Huez, France", status: "Sold Out" }
+    { date: "2025-12-15", venue: "Tomorrowland Winter", location: "Alpe d'Huez, France", status: "On Sale" },
+    { date: "2026-01-20", venue: "Ministry of Sound", location: "London, UK", status: "Sold Out" },
+    { date: "2026-02-10", venue: "Amnesia Ibiza", location: "Ibiza, Spain", status: "On Sale" },
+    { date: "2026-03-05", venue: "Fabric", location: "London, UK", status: "Presale" },
+    { date: "2026-03-20", venue: "Pacha", location: "Ibiza, Spain", status: "On Sale" },
+    { date: "2026-04-01", venue: "Zouk", location: "Singapore", status: "On Sale" },
+    { date: "2026-04-15", venue: "Hï Ibiza", location: "Ibiza, Spain", status: "Presale" },
+    { date: "2026-05-05", venue: "Output", location: "New York, USA", status: "Sold Out" },
+    { date: "2026-05-20", venue: "Berghain", location: "Berlin, Germany", status: "On Sale" },
+    { date: "2026-06-01", venue: "DC-10", location: "Ibiza, Spain", status: "On Sale" },
 ];
-
-
 
 const TourSection = () => {
     const [showAllTourCard, setShowAllTourCard] = useState(false);
@@ -56,7 +44,6 @@ const TourSection = () => {
     }
 
     const visibleDates = showAllTourCard ? tourDates : tourDates.slice(0, 6);
-
 
     return (
         <SectionWrapper>

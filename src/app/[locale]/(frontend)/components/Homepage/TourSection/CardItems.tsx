@@ -9,7 +9,6 @@ interface Props {
 }
 
 const CardItems = ({ items }: Props) => {
-    // Eğer items yoksa veya boşsa render etme
     if (!items || items.length === 0) {
         return null;
     }
