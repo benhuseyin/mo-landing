@@ -132,8 +132,8 @@ export default function DatePicker({
                     src={ChevronDownIcon}
                     alt="chevron-down-icon"
                     className={classNames(
-                        "opacity-60 invert transition-transform duration-300", // transform için transition ekledik
-                        { 'rotate-180': open } // open olunca döndür
+                        "opacity-60 invert transition-transform duration-300",
+                        { 'rotate-180': open }
                     )}
                 />
 
