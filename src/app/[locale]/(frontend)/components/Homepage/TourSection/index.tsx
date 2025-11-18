@@ -62,7 +62,16 @@ const TourSection = () => {
     }
 
     const handleResetFilter = () => {
+        if (timeoutId) clearTimeout(timeoutId);
+
+        setIsLoadingCardItems(true)
         setDateIso(null)
+
+        const id = setTimeout(() => {
+            setIsLoadingCardItems(false);
+        }, 1000);
+
+        setTimeoutId(id);
     }
 
     const visibleDates = showAllTourCard ? tourDates : tourDates.slice(0, 6);
