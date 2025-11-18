@@ -114,7 +114,7 @@ export default function DatePicker({
         setOpen(false);
     };
 
-    const displayLabel = selected ? `${pad(selected.d)} ${monthNames[selected.m - 1]} ${selected.y}` : placeholder;
+    const displayLabel = selected && value !== null ? `${pad(selected.d)} ${monthNames[selected.m - 1]} ${selected.y}` : placeholder;
 
     return (
         <div className={twMerge("relative inline-block w-full", className)}>
