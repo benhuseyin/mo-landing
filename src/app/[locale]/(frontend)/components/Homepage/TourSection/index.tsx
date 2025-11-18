@@ -13,6 +13,7 @@ import SectionOverlay from "../../Global/SectionOverlay";
 import SectionWrapper from "../../Global/SectionWrapper";
 import SectionParent from "../../Global/SectionParent";
 import CardItems from "./CardItems";
+import DatePicker from "../../Global/DatePicker";
 
 const tourDates = [
     { date: "DEC 15, 2025", venue: "Tomorrowland Winter", location: "Alpe d'Huez, France", status: "On Sale" },
@@ -41,7 +42,7 @@ const tourDates = [
 
 const TourSection = () => {
     const [showAllTourCard, setShowAllTourCard] = useState(false);
-    const [day, setDay] = useState<number | string>("");
+    const [dateIso, setDateIso] = useState<string | null>(null);
 
 
     const days = Array.from({ length: 31 }).map((_, i) => ({
@@ -82,11 +83,13 @@ const TourSection = () => {
                     </p>
                 </div>
 
-                <div className="flex items-center gap-x-2.5">
-
+                <div className="flex items-center justify-end gap-x-2.5">
+                    <div className="max-w-sm">
+                        <DatePicker value={dateIso} onChange={(iso) => setDateIso(iso)} />
+                    </div>
                     <Button
                         onClick={handleShowAllTourCard}
-                        className="relative !bg-green-300/20 backdrop-blur-3xl border border-green-400/30 text-white font-semibold w-fit shadow-[0_8px_32px_rgba(34,197,94,0.25)] shadow-green-500/30 hover:!bg-green-500/50 hover:shadow-[0_8px_32px_rgba(34,197,94,0.45)] transition-all duration-300 mx-auto"
+                        className="relative !bg-green-300/20 backdrop-blur-3xl border border-green-400/30 text-white font-semibold w-fit shadow-[0_8px_32px_rgba(34,197,94,0.25)] shadow-green-500/30 hover:!bg-green-500/50 hover:shadow-[0_8px_32px_rgba(34,197,94,0.45)] transition-all duration-300"
                     >
                         Show All
                     </Button>
