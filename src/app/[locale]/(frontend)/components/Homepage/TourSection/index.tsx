@@ -75,7 +75,7 @@ const TourSection = () => {
             <SectionOverlay />
 
             <SectionParent>
-                <div className="text-center mb-16 space-y-4">
+                <div className="text-center space-y-4">
                     <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 backdrop-blur-sm border border-primary/20">
                         <Image src={Calendar} alt="calendar-icon" className="w-4 h-4 text-primary invert" />
                         <span className="text-sm font-medium text-primary">2025 - 2026</span>
