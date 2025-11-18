@@ -1,14 +1,14 @@
 'use client'
 
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import Calendar from '@/src/assets/icons/calendar.svg'
-import Map from '@/src/assets/icons/map-pin.svg'
-
+import LoadingIcon from '@/src/assets/icons/disc-3.svg'
 
 import Button from "../../Global/Button";
 import MoBg from "@/src/assets/images/mo-tour.jpg"
+import MoLoadingBg from "@/src/assets/images/mo-loading-bg.jpg"
 import SectionOverlay from "../../Global/SectionOverlay";
 import SectionWrapper from "../../Global/SectionWrapper";
 import SectionParent from "../../Global/SectionParent";
@@ -35,13 +35,30 @@ const tourDates = [
 const TourSection = () => {
     const [showAllTourCard, setShowAllTourCard] = useState(false);
     const [dateIso, setDateIso] = useState<string | null>(null);
+    const [isLoadingCardItems, setIsLoadingCardItems] = useState(false)
+    const [timeoutId, setTimeoutId] = useState<NodeJS.Timeout | null>(null);
+
+    useEffect(() => {
+        return () => {
+            if (timeoutId) clearTimeout(timeoutId);
+        };
+    }, [timeoutId]);
 
     const handleShowAllTourCard = () => {
         setShowAllTourCard(!showAllTourCard);
     }
 
     const handleSetFilterDate = (iso: string) => {
+
+        if (timeoutId) clearTimeout(timeoutId);
+
+        setIsLoadingCardItems(true)
         setDateIso(iso)
+        const id = setTimeout(() => {
+            setIsLoadingCardItems(false);
+        }, 1000);
+
+        setTimeoutId(id);
     }
 
     const handleResetFilter = () => {
@@ -59,18 +76,19 @@ const TourSection = () => {
 
     const shownItems = dateIso ? filteredDates : visibleDates
 
-
-    console.log(dateIso)
     return (
         <SectionWrapper>
             <Image
                 src={MoBg}
                 alt="Mahmut Orhan Tour Dates Section Background Image"
                 fill
-                className="object-cover object-center"
+                className={classNames("object-cover object-center transition-all duration-300", {
+                    "opacity-35": isLoadingCardItems
+                })}
                 priority={false}
                 placeholder="blur"
             />
+
 
             <SectionOverlay />
 
@@ -102,11 +120,18 @@ const TourSection = () => {
 
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                    <CardItems items={shownItems} />
+                <div className={classNames("min-h-[452px] duration-300 transition-all", {
+                    "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4": !isLoadingCardItems,
+                    "flex justify-center items-center ": isLoadingCardItems
+                })}>
+                    {isLoadingCardItems ?
+                        <Image src={LoadingIcon} alt="loading-icon" className="size-20 invert animate-spin m-auto" /> :
+                        <CardItems items={shownItems} />
+                    }
                 </div>
 
-                {!dateIso &&
+
+                {!dateIso && !isLoadingCardItems &&
                     <Button
                         onClick={handleShowAllTourCard}
                         className="relative !bg-green-300/20 backdrop-blur-3xl border border-green-400/30 text-white font-semibold w-fit shadow-[0_8px_32px_rgba(34,197,94,0.25)] shadow-green-500/30 hover:!bg-green-500/50 hover:shadow-[0_8px_32px_rgba(34,197,94,0.45)] transition-all duration-300 mx-auto"
@@ -120,3 +145,5 @@ const TourSection = () => {
 };
 
 export default TourSection
+
+
