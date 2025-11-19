@@ -39,7 +39,6 @@ const TourSection = () => {
     const [showAllTourCard, setShowAllTourCard] = useState(false);
     const [dateIso, setDateIso] = useState<string | null>(null);
     const [isLoadingCardItems, setIsLoadingCardItems] = useState(false)
-    const [timeoutId, setTimeoutId] = useState<NodeJS.Timeout | null>(null);
 
     useEffect(() => {
         return () => {
