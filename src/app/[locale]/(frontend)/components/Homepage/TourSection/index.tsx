@@ -19,6 +19,7 @@ import { formatDate } from "../../../utils/helpers/functions";
 
 import XIcon from '@/src/assets/icons/x.svg'
 import classNames from "classnames";
+import { useTranslations } from "next-intl";
 
 const tourDates = [
     { date: "2025-12-15", venue: "Tomorrowland Winter", location: "Alpe d'Huez, France", status: "On Sale" },
@@ -34,6 +35,8 @@ const tourDates = [
 ];
 
 const TourSection = () => {
+    const t = useTranslations('HomePage.tour');
+
     const timeoutRef = useRef<number | null>(null);
 
     const [showAllTourCard, setShowAllTourCard] = useState(false);
@@ -121,9 +124,9 @@ const TourSection = () => {
                         <Image src={Calendar} alt="calendar-icon" className="w-4 h-4 text-primary invert" />
                         <span className="text-sm font-medium text-primary">2025 - 2026</span>
                     </div>
-                    <h2 className="font-display text-5xl md:text-6xl font-bold">Tour Dates</h2>
+                    <h2 className="font-display text-5xl md:text-6xl font-bold">{t('title')}</h2>
                     <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-                        Catch me live at the world's most iconic venues
+                        {t('description')}
                     </p>
                 </div>
 
@@ -139,7 +142,7 @@ const TourSection = () => {
                                 </Button>
                             }
                         </div>
-                        {dateIso && <p className="text-center sm:text-left text-sm pl-1">You are filtering dates starting from: <span className="font-bold underline underline-offset-4 block sm:inline-block">{formatDate(dateIso)}</span></p>}
+                        {dateIso && <p className="text-center sm:text-left text-sm pl-1">{t('filter-description')} <span className="font-bold underline underline-offset-4 block sm:inline-block">{formatDate(dateIso)}</span></p>}
                     </div>
 
                 </div>
@@ -160,7 +163,7 @@ const TourSection = () => {
                         onClick={handleShowAllTourCard}
                         className="relative !bg-green-300/20 backdrop-blur-3xl border border-green-400/30 text-white font-semibold w-fit shadow-[0_8px_32px_rgba(34,197,94,0.25)] shadow-green-500/30 hover:!bg-green-500/50 hover:shadow-[0_8px_32px_rgba(34,197,94,0.45)] mx-auto animate-fade-in"
                     >
-                        {showAllTourCard ? 'Hide' : 'Show All'}
+                        {showAllTourCard ? t('button-hide') : t('button-show')}
                     </Button>
                 }
             </SectionParent>

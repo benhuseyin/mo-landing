@@ -17,7 +17,11 @@
     "HomePage": {
         "title": "Hello world!",
         "tour": {
-            "title": "TOUR DATES"
+            "title": "TOUR DATES",
+            "description": "Catch me live at the world's most iconic venues",
+            "filter-description": "You are filtering dates starting from:",
+            "button-show": "SHOW ALL",
+            "button-hide": "HIDE"
         },
         "latest-music": {
             "title": "MUSIC <br></br> LATEST RELEASE."
