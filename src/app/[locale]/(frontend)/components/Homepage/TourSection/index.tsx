@@ -115,7 +115,7 @@ const TourSection = () => {
 
                 <div className="flex items-center justify-center sm:justify-end gap-x-2.5">
                     <div className={classNames("transition-all duration-300", {
-                        "relative bg-green-200/20 border border-green-400/30 text-white font-semibold w-fit shadow-[0_8px_32px_rgba(34,197,94,0.25)] shadow-green-500/30 p-5 rounded-2xl z-50 space-y-5": dateIso
+                        "relative bg-green-200/20 border border-green-400/30 text-white font-semibold w-full sm:w-fit shadow-[0_8px_32px_rgba(34,197,94,0.25)] shadow-green-500/30 p-5 rounded-2xl z-50 space-y-5": dateIso
                     })}>
                         <div className="flex gap-x-2.5">
                             <DatePicker value={dateIso} onChange={(iso) => handleSetFilterDate(iso)} />
