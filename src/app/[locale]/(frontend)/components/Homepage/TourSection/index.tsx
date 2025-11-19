@@ -154,7 +154,7 @@ const TourSection = () => {
                         onClick={handleShowAllTourCard}
                         className="relative !bg-green-300/20 backdrop-blur-3xl border border-green-400/30 text-white font-semibold w-fit shadow-[0_8px_32px_rgba(34,197,94,0.25)] shadow-green-500/30 hover:!bg-green-500/50 hover:shadow-[0_8px_32px_rgba(34,197,94,0.45)] mx-auto animate-fade-in"
                     >
-                        Show All
+                        {showAllTourCard ? 'Hide' : 'Show All'}
                     </Button>
                 }
             </SectionParent>
