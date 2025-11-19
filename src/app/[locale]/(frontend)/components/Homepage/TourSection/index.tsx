@@ -8,7 +8,8 @@ import LoadingIcon from '@/src/assets/icons/disc-3.svg'
 
 import Button from "../../Global/Button";
 import MoBg from "@/src/assets/images/mo-tour.jpg"
-import MoLoadingBg from "@/src/assets/images/mo-loading-bg.jpg"
+import MoMobileBg from "@/src/assets/images/mo-mobile-tour-bg.webp"
+
 import SectionOverlay from "../../Global/SectionOverlay";
 import SectionWrapper from "../../Global/SectionWrapper";
 import SectionParent from "../../Global/SectionParent";
@@ -100,7 +101,18 @@ const TourSection = () => {
                 src={MoBg}
                 alt="Mahmut Orhan Tour Dates Section Background Image"
                 fill
-                className={classNames("object-cover object-center transition-all duration-300", {
+                className={classNames("object-cover object-center transition-all duration-300 hidden sm:flex", {
+                    "opacity-35": isLoadingCardItems
+                })}
+                priority={false}
+                placeholder="blur"
+            />
+
+            <Image
+                src={MoMobileBg}
+                alt="Mahmut Orhan Tour Dates Section Background Image"
+                fill
+                className={classNames("object-cover object-center transition-all duration-300 sm:hidden", {
                     "opacity-35": isLoadingCardItems
                 })}
                 priority={false}
