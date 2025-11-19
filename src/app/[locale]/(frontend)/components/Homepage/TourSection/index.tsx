@@ -1,7 +1,7 @@
 'use client'
 
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 import Calendar from '@/src/assets/icons/calendar.svg'
 import LoadingIcon from '@/src/assets/icons/disc-3.svg'
@@ -34,6 +34,8 @@ const tourDates = [
 ];
 
 const TourSection = () => {
+    const timeoutRef = useRef<number | null>(null);
+
     const [showAllTourCard, setShowAllTourCard] = useState(false);
     const [dateIso, setDateIso] = useState<string | null>(null);
     const [isLoadingCardItems, setIsLoadingCardItems] = useState(false)
@@ -41,49 +43,42 @@ const TourSection = () => {
 
     useEffect(() => {
         return () => {
-            if (timeoutId) clearTimeout(timeoutId);
+            if (timeoutRef.current) {
+                window.clearTimeout(timeoutRef.current);
+            }
         };
-    }, [timeoutId]);
+    }, []);
+
+
+    const withLoading = useCallback((action: () => void, delay = 1000) => {
+        if (timeoutRef.current) {
+            window.clearTimeout(timeoutRef.current);
+            timeoutRef.current = null;
+        }
+
+        setIsLoadingCardItems(true);
+        action();
+
+        timeoutRef.current = window.setTimeout(() => {
+            setIsLoadingCardItems(false);
+            timeoutRef.current = null;
+        }, delay);
+    }, []);
 
     const handleShowAllTourCard = () => {
-        if (timeoutId) clearTimeout(timeoutId);
-
-        setIsLoadingCardItems(true)
-        setShowAllTourCard(!showAllTourCard);
-
-        const id = setTimeout(() => {
-            setIsLoadingCardItems(false);
-        }, 1000);
-
-        setTimeoutId(id);
-    }
+        withLoading(() => setShowAllTourCard(prev => !prev));
+    };
 
     const handleSetFilterDate = (iso: string) => {
-        if (timeoutId) clearTimeout(timeoutId);
-
-        setShowAllTourCard(false)
-        setIsLoadingCardItems(true)
-        setDateIso(iso)
-        const id = setTimeout(() => {
-            setIsLoadingCardItems(false);
-        }, 1000);
-
-        setTimeoutId(id);
-    }
+        withLoading(() => {
+            setShowAllTourCard(false);
+            setDateIso(iso);
+        });
+    };
 
     const handleResetFilter = () => {
-        if (timeoutId) clearTimeout(timeoutId);
-
-        setIsLoadingCardItems(true)
-        setDateIso(null)
-
-        const id = setTimeout(() => {
-            setIsLoadingCardItems(false);
-        }, 1000);
-
-        setTimeoutId(id);
-    }
-
+        withLoading(() => setDateIso(null));
+    };
     const visibleDates = showAllTourCard ? tourDates : tourDates.slice(0, 6);
 
     const filteredDates = tourDates.filter((date) => {
