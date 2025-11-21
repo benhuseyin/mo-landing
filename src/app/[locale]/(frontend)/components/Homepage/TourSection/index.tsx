@@ -21,6 +21,7 @@ import XIcon from '@/src/assets/icons/x.svg'
 import classNames from "classnames";
 import { useTranslations } from "next-intl";
 import { tourDates } from "../../../utils/constants";
+import SectionHeader from "../../Global/SectionHeader";
 
 const TourSection = () => {
     const t = useTranslations('HomePage.tour');
@@ -107,16 +108,16 @@ const TourSection = () => {
             <SectionOverlay />
 
             <SectionParent>
-                <div className="text-center space-y-4">
-                    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 backdrop-blur-sm border border-primary/20">
-                        <Image src={Calendar} alt="calendar-icon" className="w-4 h-4 text-primary invert" />
-                        <span className="text-sm font-medium text-primary">2025 - 2026</span>
-                    </div>
-                    <h2 className="font-display text-5xl md:text-6xl font-bold">{t('title')}</h2>
-                    <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-                        {t('description')}
-                    </p>
-                </div>
+                <SectionHeader
+                    preHeader={
+                        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 backdrop-blur-sm border border-primary/20">
+                            <Image src={Calendar} alt="calendar-icon" className="w-4 h-4 text-primary invert" />
+                            <span className="text-sm font-medium text-primary">2025 - 2026</span>
+                        </div>
+                    }
+                    title={t('title')}
+                    description={t('description')}
+                />
 
                 <div className="flex items-center justify-center sm:justify-end gap-x-2.5">
                     <div className={classNames("transition-all duration-300", {
