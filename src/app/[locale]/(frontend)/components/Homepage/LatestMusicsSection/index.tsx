@@ -1,5 +1,9 @@
 "use client"
 import { useState, useRef } from 'react';
+import Image from 'next/image';
+
+import AppleIcon from '@/src/assets/icons/apple-music.svg'
+import YoutubeIcon from '@/src/assets/icons/youtube-icon.svg'
 
 const LatestReleaseSection = () => {
     const [isHovered, setIsHovered] = useState(false);
@@ -155,7 +159,7 @@ const LatestReleaseSection = () => {
                         {/* Streaming Platforms */}
                         <div className="flex gap-3 justify-center flex-wrap">
                             <a
-                                href={`https://open.spotify.com/track/${tracks[activeTrack].spotifyId}`}
+                                href='https://open.spotify.com/artist/3t8WiyalpvnB9AObcMufiE'
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="px-4 py-2 bg-green-500/20 hover:bg-green-500/30 rounded-full text-sm text-green-400 hover:text-green-300 transition-all border border-green-500/30 flex items-center gap-2"
@@ -166,15 +170,17 @@ const LatestReleaseSection = () => {
                                 Spotify
                             </a>
                             <a
-                                href="#"
-                                className="px-4 py-2 bg-white/5 hover:bg-white/10 rounded-full text-sm text-gray-400 hover:text-white transition-all border border-white/10"
+                                href="https://music.apple.com/us/artist/mahmut-orhan/417433523"
+                                className="px-4 py-2 bg-[#ff4e6b]/20 border-[#ff4e6b]/30 hover:bg-[#ff4e6b]/40 rounded-full text-sm text-[#ff4e6b] hover:text-[#ff4e6b] transition-all border flex gap-x-2 items-center"
                             >
+                                <Image src={AppleIcon} alt="Apple icon" className='size-4' />
                                 Apple Music
                             </a>
                             <a
-                                href="#"
-                                className="px-4 py-2 bg-white/5 hover:bg-white/10 rounded-full text-sm text-gray-400 hover:text-white transition-all border border-white/10"
+                                href="https://www.youtube.com/@Mahmut_Orhan"
+                                className="px-4 py-2 bg-[#FF0000]/10 hover:bg-[#ff4e6b]/20 rounded-full text-sm text-[#FF0000] transition-all border border-[#FF0000]/30 flex gap-x-2 items-center"
                             >
+                                <Image src={YoutubeIcon} alt="Youtube icon" className='size-4' />
                                 YouTube
                             </a>
                         </div>
