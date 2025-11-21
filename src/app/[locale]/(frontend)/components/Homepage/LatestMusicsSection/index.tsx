@@ -167,10 +167,10 @@ const LatestReleaseSection = () => {
                             <div
                                 key={i}
                                 onClick={() => handleTrackClick(i)}
-                                className={`group p-5 rounded-xl cursor-pointer transition-all duration-300 ${activeTrack === i && showPlayer
-                                    ? 'bg-linear-to-r from-amber-500/20 to-transparent border-l-2 border-amber-400'
-                                    : 'bg-white/5 hover:bg-white/10 border-l-2 border-transparent'
-                                    }`}
+                                className={classNames("group p-5 rounded-xl cursor-pointer transition-all duration-300", {
+                                    'bg-linear-to-r from-amber-500/20 to-transparent border-l-2 border-amber-400': activeTrack === i && showPlayer,
+                                    'bg-white/5 hover:bg-white/10 border-l-2 border-transparent': !(activeTrack === i && showPlayer),
+                                })}
                             >
                                 <div className="flex items-center gap-4">
                                     {/* Play button / Track number */}
