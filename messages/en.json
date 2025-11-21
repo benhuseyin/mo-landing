@@ -21,7 +21,12 @@
             "description": "Catch me live at the world's most iconic venues",
             "filter-description": "You are filtering dates starting from:",
             "button-show": "SHOW ALL",
-            "button-hide": "HIDE"
+            "button-hide": "HIDE",
+            "tourStatus": {
+                "onSale": "On Sale",
+                "soldOut": "Sold Out",
+                "presale": "Presale"
+            }
         },
         "latest-music": {
             "title": "MUSIC <br></br> LATEST RELEASE."

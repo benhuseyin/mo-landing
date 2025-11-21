@@ -9,12 +9,15 @@ import { item } from "@/src/types";
 import classNames from "classnames";
 import { TourDateStatus } from "@/src/types/enums";
 import { formatDate } from "../../../utils/helpers/functions";
+import { useTranslations } from "next-intl";
 
 interface Props {
     item: item;
 }
 
 const CardItem = ({ item }: Props) => {
+
+    const t = useTranslations("HomePage.tour.tourStatus");
 
     return (
         <CardWrapper>
@@ -32,7 +35,7 @@ const CardItem = ({ item }: Props) => {
                                 "bg-success text-primary": item.status === TourDateStatus.ON_SALE
                             })}
                         >
-                            {item.status}
+                            {t(item.status)}
                         </span>
                     </div>
 
@@ -47,7 +50,7 @@ const CardItem = ({ item }: Props) => {
 
                 <Button
                     className="bg-success/50 hover:shadow-glow transition-all w-full"
-                    disabled={item.status === "Sold Out"}
+                    disabled={item.status === TourDateStatus.SOLD_OUT}
                 >
                     Get Tickets
                     <Image src={ExternalLink} alt="external-link" className="w-4 h-4 ml-2 invert" />

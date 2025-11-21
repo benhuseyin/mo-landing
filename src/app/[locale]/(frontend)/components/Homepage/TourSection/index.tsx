@@ -20,19 +20,7 @@ import { formatDate } from "../../../utils/helpers/functions";
 import XIcon from '@/src/assets/icons/x.svg'
 import classNames from "classnames";
 import { useTranslations } from "next-intl";
-
-const tourDates = [
-    { date: "2025-12-15", venue: "Tomorrowland Winter", location: "Alpe d'Huez, France", status: "On Sale" },
-    { date: "2026-01-20", venue: "Ministry of Sound", location: "London, UK", status: "Sold Out" },
-    { date: "2026-02-10", venue: "Amnesia Ibiza", location: "Ibiza, Spain", status: "On Sale" },
-    { date: "2026-03-05", venue: "Fabric", location: "London, UK", status: "Presale" },
-    { date: "2026-03-20", venue: "Pacha", location: "Ibiza, Spain", status: "On Sale" },
-    { date: "2026-04-01", venue: "Zouk", location: "Singapore", status: "On Sale" },
-    { date: "2026-04-15", venue: "Hï Ibiza", location: "Ibiza, Spain", status: "Presale" },
-    { date: "2026-05-05", venue: "Output", location: "New York, USA", status: "Sold Out" },
-    { date: "2026-05-20", venue: "Berghain", location: "Berlin, Germany", status: "On Sale" },
-    { date: "2026-06-01", venue: "DC-10", location: "Ibiza, Spain", status: "On Sale" },
-];
+import { tourDates } from "../../../utils/constants";
 
 const TourSection = () => {
     const t = useTranslations('HomePage.tour');

@@ -1,5 +1,5 @@
 export enum TourDateStatus {
-    SOLD_OUT = "Sold Out",
-    PRESALE = "Presale",
-    ON_SALE = "On Sale"
+    ON_SALE = "onSale",
+    SOLD_OUT = "soldOut",
+    PRESALE = "presale"
 }
