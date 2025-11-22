@@ -4,6 +4,7 @@ import HeroSection from "../components/Homepage/HeroSection";
 import TourSection from "../components/Homepage/TourSection";
 import ContactSection from "../components/Homepage/ContactSection";
 import SocialMediaSection from "../components/Homepage/SocialMediaSection";
+import ContactForm from "../components/Homepage/FormSection";
 
 export default function Home() {
   const t = useTranslations('HomePage');
@@ -14,6 +15,7 @@ export default function Home() {
       <TourSection />
       <LatestMusicsSection />
       <SocialMediaSection />
+      <ContactForm />
       <ContactSection />
     </main>
   );
