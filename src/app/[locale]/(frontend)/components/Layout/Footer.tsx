@@ -72,8 +72,10 @@ export default function DJFooter() {
                         {socialLinks.map((link, index) => (
                             <a
                                 key={index}
+                                rel="noopener noreferrer"
                                 href={link.url}
                                 aria-label={link.name}
+                                target='_blank'
                                 className="w-10 h-10 bg-gray-800 hover:bg-linear-to-br hover:from-purple-600 hover:to-pink-600 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 hover:rotate-12"
                             >
                                 <Image src={link.icon} alt={link.name} className="w-5 h-5" />
