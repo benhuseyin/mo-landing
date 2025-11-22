@@ -213,23 +213,6 @@ const ContactForm = () => {
                     </p>
                 </div>
             </div>
-
-            <style>{`
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-        @keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-        @keyframes float { 0%,100%{ transform: translate(0,0) scale(1); } 50% { transform: translate(30px,-30px) scale(1.1); } }
-        @keyframes float-slow { 0%,100%{ transform: translate(0,0) scale(1); } 50% { transform: translate(-40px,40px) scale(1.05); } }
-        @keyframes float-reverse { 0%,100%{ transform: translate(0,0) scale(1); } 50% { transform: translate(-20px,-40px) scale(1.08); } }
-        .animate-fadeIn { animation: fadeIn 0.8s ease-out; }
-        .animate-slideUp { animation: slideUp 0.9s ease-out; }
-        .animate-float { animation: float 20s ease-in-out infinite; }
-        .animate-float-slow { animation: float-slow 25s ease-in-out infinite; }
-        .animate-float-reverse { animation: float-reverse 18s ease-in-out infinite; }
-        .animation-delay-1000 { animation-delay: 1s; }
-        .animation-delay-2000 { animation-delay: 2s; }
-        input:focus, input:hover { transform: translateY(-1px); }
-        input[type="checkbox"]:checked { background-image: none; }
-      `}</style>
         </div>
     );
 }
