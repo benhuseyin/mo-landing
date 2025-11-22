@@ -32,14 +32,14 @@ const ContactSection = () => {
             <div className="max-w-4xl w-full">
                 {/* Header with audio wave effect */}
                 <div className="text-center mb-16">
-                    <h2 className="text-5xl font-bold mb-4 bg-gradient-to-r from-purple-400 via-pink-400 to-orange-400 bg-clip-text text-transparent">
+                    <h2 className="text-5xl font-bold mb-4 bg-linear-to-r from-purple-400 via-pink-400 to-orange-400 bg-clip-text text-transparent">
                         CONTACT
                     </h2>
                     <div className="flex justify-center gap-1 mt-6">
                         {[...Array(20)].map((_, i) => (
                             <div
                                 key={i}
-                                className="w-1 bg-gradient-to-t from-purple-500 to-pink-500 rounded-full animate-pulse"
+                                className="w-1 bg-linear-to-t from-purple-500 to-pink-500 rounded-full animate-pulse"
                                 style={{
                                     height: `${Math.random() * 40 + 10}px`,
                                     animationDelay: `${i * 0.1}s`,
@@ -58,15 +58,15 @@ const ContactSection = () => {
                             className="group relative overflow-hidden rounded-2xl transition-all duration-300"
                         >
                             {/* Gradient border effect */}
-                            <div className={`absolute inset-0 bg-gradient-to-r ${faq.color} opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl`} />
+                            <div className={`absolute inset-0 bg-linear-to-r ${faq.color} opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl`} />
 
                             <div className="relative bg-zinc-900 rounded-2xl border border-zinc-800 overflow-hidden">
                                 {/* Question button */}
                                 <button
                                     onClick={() => setActiveIndex(activeIndex === index ? -1 : index)}
-                                    className="w-full p-6 flex items-center gap-4 text-left transition-all duration-300 hover:bg-zinc-800/50"
+                                    className="w-full p-6 flex items-center gap-4 text-left transition-all duration-300 hover:bg-zinc-800/50 cursor-pointer"
                                 >
-                                    <div className={`p-3 rounded-xl bg-gradient-to-br ${faq.color} flex-shrink-0 transition-transform duration-300 ${activeIndex === index ? 'scale-110 rotate-12' : ''}`}>
+                                    <div className={`p-3 rounded-xl bg-linear-to-br ${faq.color} shrink-0 transition-transform duration-300 ${activeIndex === index ? 'scale-110 rotate-12' : ''}`}>
                                         {faq.icon}
                                     </div>
                                     <span className="text-xl font-semibold flex-grow">{faq.question}</span>
@@ -83,7 +83,7 @@ const ContactSection = () => {
                                         }`}
                                 >
                                     <div className="px-6 pb-6 pt-2">
-                                        <div className={`h-px bg-gradient-to-r ${faq.color} mb-4 opacity-50`} />
+                                        <div className={`h-px bg-linear-to-r ${faq.color} mb-4 opacity-50`} />
                                         <p className="text-zinc-300 leading-relaxed pl-16">
                                             {faq.answer}
                                         </p>
@@ -107,7 +107,7 @@ const ContactSection = () => {
                     {[...Array(3)].map((_, i) => (
                         <div
                             key={i}
-                            className={`w-3 h-3 rounded-full transition-all duration-300 ${activeIndex === i ? 'bg-gradient-to-r from-purple-500 to-pink-500 scale-125' : 'bg-zinc-700'
+                            className={`w-3 h-3 rounded-full transition-all duration-300 ${activeIndex === i ? 'bg-linear-to-r from-purple-500 to-pink-500 scale-125' : 'bg-zinc-700'
                                 }`}
                         />
                     ))}
