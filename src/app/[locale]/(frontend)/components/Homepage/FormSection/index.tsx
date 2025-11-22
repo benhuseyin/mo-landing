@@ -15,14 +15,11 @@ const ContactForm = () => {
 
     const [submitStatus, setSubmitStatus] = useState<null | 'success' | 'error'>(null);
 
-
     const description = t.rich("description", {
         span: (chunks) => (
             <span className="text-cyan-400 font-medium">{chunks}</span>
         )
     })
-
-
 
     const {
         register,
