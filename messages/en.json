@@ -7,11 +7,14 @@
             "fourth-item": "Contact"
         },
         "footer": {
+            "description": "Delivering electrifying beats and unforgettable performances worldwide. Stay connected for tour dates and new releases..",
+            "menu-title": "Quick Links",
+            "right-text": " © {date} Mahmut Orhan. All rights reserved.",
+            "extra-description": "Designed for the lovers of electronic music",
             "policies": {
                 "first-item": "PRIVACY POLICY",
                 "second-item": "COOKIES"
-            },
-            "description": "© Copyright Mahmut Orhan 2025. All rights reserved."
+            }
         }
     },
     "HomePage": {

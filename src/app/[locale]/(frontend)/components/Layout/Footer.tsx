@@ -2,9 +2,13 @@ import Image from 'next/image';
 import Logo from '@/src/assets/icons/mo-logo.svg'
 import Link from 'next/link';
 import { NavbarItems, socialLinks } from '../../utils/constants';
+import { useTranslations } from 'next-intl';
 
 
 export default function DJFooter() {
+
+    const t = useTranslations('Layout.footer');
+
 
     return (
         <footer className="relative bg-linear-to-b from-black via-gray-900 to-black text-white overflow-hidden">
@@ -23,13 +27,13 @@ export default function DJFooter() {
                         <Image src={Logo} alt="mahmut orhan logo" className='size-[150px]' />
 
                         <p className="text-gray-400 text-sm leading-relaxed">
-                            Delivering electrifying beats and unforgettable performances worldwide. Stay connected for tour dates and new releases.
+                            {t('description')}
                         </p>
                     </div>
 
                     {/* Quick Links */}
                     <div className="space-y-4">
-                        <h4 className="text-lg font-semibold text-purple-400 uppercase tracking-wider">Quick Links</h4>
+                        <h4 className="text-lg font-semibold text-purple-400 uppercase tracking-wider">{t('menu-title')}</h4>
                         <ul className="space-y-3">
                             {
                                 NavbarItems.map((item, index) => (
@@ -80,10 +84,10 @@ export default function DJFooter() {
 
                     <div className="text-center md:text-right">
                         <p className="text-gray-500 text-sm">
-                            © {new Date().getFullYear()} Mahmut Orhan. All rights reserved.
+                            {t('right-text', { date: new Date().getFullYear() })}
                         </p>
                         <p className="text-gray-600 text-xs mt-1">
-                            Designed for the lovers of electronic music
+                            {t('extra-description')}
                         </p>
                     </div>
                 </div>
