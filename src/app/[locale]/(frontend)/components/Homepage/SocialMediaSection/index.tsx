@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { useState } from 'react';
 import { Instagram, Music2, Youtube, Facebook } from 'lucide-react';
 
-import Bg from '@/src/assets/images/mo-social-media-bg.jpg'
+import Bg from '@/src/assets/images/mo-social-media-bg.webp'
 import SectionOverlay from '../../Global/SectionOverlay';
 
 const SocialMediaSection = () => {
