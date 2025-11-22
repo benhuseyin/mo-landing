@@ -1,33 +1,34 @@
 "use client"
 
-import { useState } from 'react';
+import { Fragment, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { Music, Send, CheckCircle, AlertCircle, Calendar } from 'lucide-react';
-
-// Zod schema
-const contactSchema = z.object({
-    fullName: z.string().min(2, { message: 'Full name must be at least 2 characters' }),
-    email: z.email({ message: 'Please enter a valid email address' }),
-    bday: z.string().min(1, { message: 'Please select your birthday' }),
-    consent: z.boolean().refine(v => v === true, { message: 'Please accept to receive updates' })
-});
+import { contactSchema } from '../../../utils/schemas/NewsletterFormSchemas';
+import { useTranslations } from 'next-intl';
 
 type ContactFormValues = z.infer<typeof contactSchema>;
 
 const ContactForm = () => {
-
-    // component body içinde:
+    const t = useTranslations('HomePage.form');
 
     const [submitStatus, setSubmitStatus] = useState<null | 'success' | 'error'>(null);
+
+
+    const description = t.rich("description", {
+        span: (chunks) => (
+            <span className="text-cyan-400 font-medium">{chunks}</span>
+        )
+    })
+
+
 
     const {
         register,
         handleSubmit,
         formState: { errors, isSubmitting, touchedFields },
-        reset,
-        watch
+        reset
     } = useForm<ContactFormValues>({
         resolver: zodResolver(contactSchema),
         defaultValues: {
@@ -37,9 +38,6 @@ const ContactForm = () => {
             consent: false,
         }
     });
-
-    const consentValue = watch('consent');
-
 
     const onSubmit = async (data: ContactFormValues) => {
         try {
@@ -55,7 +53,7 @@ const ContactForm = () => {
     };
 
     return (
-        <div className="min-h-screen bg-black flex items-center justify-center p-4 overflow-hidden relative">
+        <div className="min-h-screen bg-black flex items-center justify-center p-4 overflow-hidden relative py-20">
             {/* Background visuals (same design) */}
             <div className="absolute inset-0 overflow-hidden">
                 <div className="absolute inset-0 opacity-10">
@@ -81,10 +79,10 @@ const ContactForm = () => {
                         <Music className="w-12 h-12 text-cyan-400 animate-pulse relative z-10" />
                     </div>
                     <h1 className="text-6xl font-bold bg-linear-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent mb-3 tracking-tight drop-shadow-lg">
-                        Join the Beat
+                        {t('title')}
                     </h1>
                     <p className="text-gray-400 text-lg font-light">
-                        Stay connected with <span className="text-cyan-400 font-medium">Mahmut Orhan</span>
+                        {description}
                     </p>
                 </div>
 
@@ -96,18 +94,20 @@ const ContactForm = () => {
                         {submitStatus === 'success' && (
                             <div className="mb-6 p-4 bg-linear-to-r from-cyan-500/20 to-purple-500/20 backdrop-blur-sm border border-cyan-500/50 rounded-2xl flex items-center gap-3 animate-fadeIn shadow-lg shadow-cyan-500/20">
                                 <CheckCircle className="w-5 h-5 text-cyan-400 shrink-0" />
-                                <span className="text-cyan-100 text-sm">You're on the list! Get ready for exclusive updates.</span>
+                                <span className="text-cyan-100 text-sm">
+                                    {t('success-message')}
+                                </span>
                             </div>
                         )}
 
                         <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
                             {/* Full Name */}
                             <div>
-                                <label className="block text-gray-300 font-medium mb-2 text-sm">Full Name</label>
+                                <label className="block text-gray-300 font-medium mb-2 text-sm">{t('form-item.full-name.label')}</label>
                                 <input
                                     {...register('fullName')}
                                     type="text"
-                                    placeholder="Enter your full name"
+                                    placeholder={t("form-item.email.placeholder")}
                                     className="w-full px-4 py-3.5 bg-white/5 backdrop-blur-sm border border-white/20 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500/50 focus:border-cyan-500/50 transition-all duration-300 hover:bg-white/10 hover:border-white/30"
                                 />
                                 {touchedFields.fullName && errors.fullName && (
@@ -120,11 +120,11 @@ const ContactForm = () => {
 
                             {/* Email */}
                             <div>
-                                <label className="block text-gray-300 font-medium mb-2 text-sm">Email Address</label>
+                                <label className="block text-gray-300 font-medium mb-2 text-sm">{t('form-item.email.label')}</label>
                                 <input
                                     {...register('email')}
                                     type="email"
-                                    placeholder="your@email.com"
+                                    placeholder={t('form-item.email.placeholder')}
                                     className="w-full px-4 py-3.5 bg-white/5 backdrop-blur-sm border border-white/20 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500/50 focus:border-cyan-500/50 transition-all duration-300 hover:bg-white/10 hover:border-white/30"
                                 />
                                 {touchedFields.email && errors.email && (
@@ -137,7 +137,7 @@ const ContactForm = () => {
 
                             {/* Birthday */}
                             <div>
-                                <label className="block text-gray-300 font-medium mb-2 text-sm">Birthday</label>
+                                <label className="block text-gray-300 font-medium mb-2 text-sm">{t('form-item.birthday.label')}</label>
                                 <div className="relative">
                                     <input
                                         {...register('bday')}
@@ -167,7 +167,7 @@ const ContactForm = () => {
                                     </div>
 
                                     <span className="text-gray-400 text-sm leading-relaxed group-hover:text-gray-300 transition-colors">
-                                        I would like to receive event and release information from Mahmut Orhan, and can opt out of this at any time by unsubscribing in any email I receive.
+                                        {t('form-item.checkbox.label')}
                                     </span>
                                 </label>
 
@@ -188,15 +188,19 @@ const ContactForm = () => {
                             >
                                 <div className="absolute inset-0 bg-linear-to-r from-cyan-400 via-purple-400 to-pink-400 opacity-0 hover:opacity-20 transition-opacity duration-300" />
                                 {isSubmitting ? (
-                                    <>
+                                    <Fragment>
                                         <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                                        <span>Subscribing...</span>
-                                    </>
+                                        <span>
+                                            {t('form-item.button.loading-text')}
+                                        </span>
+                                    </Fragment>
                                 ) : (
-                                    <>
+                                    <Fragment>
                                         <Send className="w-5 h-5" />
-                                        <span>Subscribe</span>
-                                    </>
+                                        <span>
+                                            {t('form-item.button.label')}
+                                        </span>
+                                    </Fragment>
                                 )}
                             </button>
                         </form>
@@ -204,7 +208,9 @@ const ContactForm = () => {
                 </div>
 
                 <div className="text-center mt-6 text-gray-500 animate-fadeIn">
-                    <p className="text-sm font-light">We respect your privacy and won't spam</p>
+                    <p className="text-sm font-light">
+                        {t('respect-text')}
+                    </p>
                 </div>
             </div>
 

@@ -33,14 +33,30 @@
             "description": "Explore new sounds, fresh drops, and global collaborations from Mahmut Orhan."
         },
         "form": {
-            "title": "SIGN UP<br></br>FOR UPDATES..",
-            "full-name": "Full Name",
-            "full-name-placeholder": "Your Full Name",
-            "email": "Email",
-            "email-placeholder": "Your E-mail",
-            "birthday": "Birthday",
-            "checkbox": "I would like to receive event and release information from Mahmut Orhan, and can opt out of this at any time by unsubscribing in any email I receive.",
-            "button": "Submit"
+            "title": "Join the Beat",
+            "description": "Stay connected with <span>Mahmut Orhan</span>",
+            "success-message": "You're on the list! Get ready for exclusive updates.",
+            "form-item": {
+                "full-name": {
+                    "label": "Full Name",
+                    "placeholder": "Your Full Name"
+                },
+                "email": {
+                    "label": "E-mail",
+                    "placeholder": "Your E-mail"
+                },
+                "birthday": {
+                    "label": "Birthday"
+                },
+                "checkbox": {
+                    "label": "I would like to receive event and release information from Mahmut Orhan, and can opt out of this at any time by unsubscribing in any email I receive."
+                },
+                "button": {
+                    "label": "Submit",
+                    "loading-text": "Subscribing..."
+                }
+            },
+            "respect-text": "We respect your privacy and won't spam"
         },
         "faq": {
             "title": "CONTACT",
