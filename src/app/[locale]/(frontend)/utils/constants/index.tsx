@@ -5,6 +5,8 @@ import AppleIcon from '@/src/assets/icons/apple-music.svg'
 import YoutubeIcon from '@/src/assets/icons/youtube-icon.svg'
 import SpotifyIcon from '@/src/assets/icons/spotify-icon.svg'
 import SoundcloudIcon from '@/src/assets/icons/soundcloud-icon.svg'
+import { User, Settings, Globe } from 'lucide-react';
+
 
 export const NavbarItems = [
     {
@@ -91,3 +93,24 @@ export const latestReleaseSocialMediaItems = [
         label: "Soundcloud"
     }
 ]
+
+export const faqs = [
+    {
+        icon: <Globe className="w-6 h-6" />,
+        question: "BOOKING CONTACT US, NA, SA, AU, NZ.",
+        answer: "alex.becket@caa.com ",
+        color: "from-purple-500 to-pink-500"
+    },
+    {
+        icon: <User className="w-6 h-6" />,
+        question: "BOOKING CONTACT ROW",
+        answer: "MDSmith@wmeagency.com",
+        color: "from-blue-500 to-cyan-500"
+    },
+    {
+        icon: <Settings className="w-6 h-6" />,
+        question: "MANAGEMENT",
+        answer: "For brand deals you can reach us at azizfiratacar@robinmusicagency.com ",
+        color: "from-orange-500 to-red-500"
+    }
+];

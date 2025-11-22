@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useState } from 'react';
-import { User, Settings, Globe } from 'lucide-react';
+import { faqs } from '../../../utils/constants';
 
 const ContactSection = () => {
     let count = 20;
@@ -14,28 +14,6 @@ const ContactSection = () => {
         setHeights(Array.from({ length: count }).map(() => Math.random() * 40 + 10));
         setDurations(Array.from({ length: count }).map(() => Math.random() * 0.5 + 0.5));
     }, [count]);
-
-
-    const faqs = [
-        {
-            icon: <Globe className="w-6 h-6" />,
-            question: "BOOKING CONTACT US, NA, SA, AU, NZ.",
-            answer: "alex.becket@caa.com ",
-            color: "from-purple-500 to-pink-500"
-        },
-        {
-            icon: <User className="w-6 h-6" />,
-            question: "BOOKING CONTACT ROW",
-            answer: "MDSmith@wmeagency.com",
-            color: "from-blue-500 to-cyan-500"
-        },
-        {
-            icon: <Settings className="w-6 h-6" />,
-            question: "MANAGEMENT",
-            answer: "For brand deals you can reach us at azizfiratacar@robinmusicagency.com ",
-            color: "from-orange-500 to-red-500"
-        }
-    ];
 
     return (
         <div className="min-h-screen bg-black text-white p-8 flex items-center justify-center">
