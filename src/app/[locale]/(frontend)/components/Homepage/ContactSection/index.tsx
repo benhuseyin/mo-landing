@@ -112,17 +112,6 @@ const ContactSection = () => {
                         </div>
                     ))}
                 </div>
-
-                {/* Footer beat indicator */}
-                <div className="mt-12 flex justify-center gap-2">
-                    {[...Array(3)].map((_, i) => (
-                        <div
-                            key={i}
-                            className={`w-3 h-3 rounded-full transition-all duration-300 ${activeIndex === i ? 'bg-linear-to-r from-purple-500 to-pink-500 scale-125' : 'bg-zinc-700'
-                                }`}
-                        />
-                    ))}
-                </div>
             </div>
         </div>
     );
