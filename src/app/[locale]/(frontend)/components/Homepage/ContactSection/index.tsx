@@ -36,7 +36,6 @@ const ContactSection = () => {
                             />
                         ))}
                     </div>
-
                 </div>
 
                 {/* FAQ Items */}
