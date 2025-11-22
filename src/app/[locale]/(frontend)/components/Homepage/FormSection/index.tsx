@@ -142,9 +142,8 @@ const ContactForm = () => {
                                     <input
                                         {...register('bday')}
                                         type="date"
-                                        className="w-full px-4 py-3.5 bg-white/5 backdrop-blur-sm border border-white/20 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500/50 focus:border-cyan-500/50 transition-all duration-300 hover:bg-white/10 hover:border-white/30 [color-scheme:dark]"
+                                        className="w-full px-4 py-3.5 bg-white/5 backdrop-blur-sm border border-white/20 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500/50 focus:border-cyan-500/50 transition-all duration-300 hover:bg-white/10 hover:border-white/30 scheme-dark cursor-pointer"
                                     />
-                                    <Calendar className="absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5 text-cyan-400 pointer-events-none" />
                                 </div>
                                 {touchedFields.bday && errors.bday && (
                                     <div className="mt-2 flex items-center gap-2 text-red-400 text-sm animate-fadeIn">
