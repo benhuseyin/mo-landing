@@ -1,9 +1,11 @@
 "use client"
 import { useState, useEffect } from 'react';
-import { Music, Instagram, Youtube, Facebook, Twitter, } from 'lucide-react';
+import { Music, Instagram, Youtube, Facebook, Twitter, Disc, Disc2, } from 'lucide-react';
 
 import Image from 'next/image';
 import Logo from '@/src/assets/icons/mo-logo.svg'
+import Link from 'next/link';
+import { NavbarItems, socialLinks } from '../../utils/constants';
 
 const SpotifyIcon = () => (
     <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
@@ -24,14 +26,6 @@ export default function DJFooter() {
         }
     }, [isPlaying]);
 
-    const socialLinks = [
-        { Icon: Instagram, href: '#', label: 'Instagram' },
-        { Icon: SpotifyIcon, href: '#', label: 'Spotify' },
-        { Icon: Youtube, href: '#', label: 'YouTube' },
-        { Icon: Facebook, href: '#', label: 'Facebook' },
-        { Icon: Twitter, href: '#', label: 'Twitter' },
-    ];
-
     return (
         <footer className="relative bg-linear-to-b from-black via-gray-900 to-black text-white overflow-hidden">
             {/* Animated Background Waves */}
@@ -45,23 +39,9 @@ export default function DJFooter() {
 
                     {/* Brand Section */}
                     <div className="space-y-6">
-                        <div
-                            className="inline-flex items-center gap-5 cursor-pointer group"
-                            onMouseEnter={() => setIsPlaying(true)}
-                            onMouseLeave={() => setIsPlaying(false)}
-                        >
-                            <div className="relative">
-                                <div className="w-16 h-16 bg-linear-to-br from-purple-600 to-pink-600 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                                    <Music className="w-8 h-8" />
-                                </div>
-                                {isPlaying && (
-                                    <div className="absolute inset-0 bg-purple-500 rounded-full animate-ping opacity-75"></div>
-                                )}
-                            </div>
 
-                            <Image src={Logo} alt="mahmut orhan logo" className='size-[150px]' />
+                        <Image src={Logo} alt="mahmut orhan logo" className='size-[150px]' />
 
-                        </div>
                         <p className="text-gray-400 text-sm leading-relaxed">
                             Delivering electrifying beats and unforgettable performances worldwide. Stay connected for tour dates and new releases.
                         </p>
@@ -71,29 +51,32 @@ export default function DJFooter() {
                     <div className="space-y-4">
                         <h4 className="text-lg font-semibold text-purple-400 uppercase tracking-wider">Quick Links</h4>
                         <ul className="space-y-3">
-                            {['Tour Dates', 'Music', 'Videos', 'Press Kit', 'Booking'].map((link) => (
-                                <li key={link}>
-                                    <a
-                                        href="#"
-                                        className="text-gray-400 hover:text-pink-400 transition-colors duration-300 flex items-center gap-2 group"
-                                    >
-                                        <span className="w-0 group-hover:w-6 h-0.5 bg-linear-to-r from-purple-500 to-pink-500 transition-all duration-300"></span>
-                                        {link}
-                                    </a>
-                                </li>
-                            ))}
+                            {
+                                NavbarItems.map((item, index) => (
+                                    <li key={index}>
+                                        <Link
+                                            href={item.slug}
+                                            className="text-gray-400 hover:text-pink-400 transition-colors duration-300 flex items-center gap-2 group"
+                                        >
+                                            <span className="w-0 group-hover:w-6 h-0.5 bg-linear-to-r from-purple-500 to-pink-500 transition-all duration-300"></span>
+                                            {item.label}
+                                        </Link>
+                                    </li>
+                                ))
+                            }
+
                         </ul>
                     </div>
 
                     <div className="flex items-center gap-4">
-                        {socialLinks.map(({ Icon, href, label }) => (
+                        {socialLinks.map((link, index) => (
                             <a
-                                key={label}
-                                href={href}
-                                aria-label={label}
+                                key={index}
+                                href={link.url}
+                                aria-label={link.name}
                                 className="w-10 h-10 bg-gray-800 hover:bg-linear-to-br hover:from-purple-600 hover:to-pink-600 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 hover:rotate-12"
                             >
-                                <Icon className="w-5 h-5" />
+                                <Image src={link.icon} alt={link.name} className="w-5 h-5" />
                             </a>
                         ))}
                     </div>
