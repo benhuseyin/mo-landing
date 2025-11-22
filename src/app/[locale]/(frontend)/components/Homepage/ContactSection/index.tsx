@@ -1,10 +1,20 @@
 "use client"
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { User, Settings, Globe } from 'lucide-react';
 
 const ContactSection = () => {
+    let count = 20;
     const [activeIndex, setActiveIndex] = useState<Number>(-1);
+    const [heights, setHeights] = useState<number[]>(Array.from({ length: count }).map(() => 20));
+    const [durations, setDurations] = useState<number[]>(Array.from({ length: count }).map(() => 0.8));
+
+
+    useEffect(() => {
+        setHeights(Array.from({ length: count }).map(() => Math.random() * 40 + 10));
+        setDurations(Array.from({ length: count }).map(() => Math.random() * 0.5 + 0.5));
+    }, [count]);
+
 
     const faqs = [
         {
@@ -35,19 +45,20 @@ const ContactSection = () => {
                     <h2 className="text-5xl font-bold mb-4 bg-linear-to-r from-purple-400 via-pink-400 to-orange-400 bg-clip-text text-transparent">
                         CONTACT
                     </h2>
-                    <div className="flex justify-center gap-1 mt-6">
-                        {[...Array(20)].map((_, i) => (
+                    <div className="flex justify-center gap-2 items-end rotate-180">
+                        {heights.map((h, i) => (
                             <div
                                 key={i}
-                                className="w-1 bg-linear-to-t from-purple-500 to-pink-500 rounded-full animate-pulse"
+                                className="w-1 rounded-full animate-pulse duration-300 bg-linear-to-t from-purple-500 to-pink-500 flex-col-reverse"
                                 style={{
-                                    height: `${Math.random() * 40 + 10}px`,
+                                    height: `${h}px`,
                                     animationDelay: `${i * 0.1}s`,
-                                    animationDuration: `${Math.random() * 0.5 + 0.5}s`
+                                    animationDuration: `${durations[i]}s`,
                                 }}
                             />
                         ))}
                     </div>
+
                 </div>
 
                 {/* FAQ Items */}
