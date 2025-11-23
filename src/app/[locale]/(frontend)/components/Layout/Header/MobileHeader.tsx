@@ -8,33 +8,8 @@ import classNames from "classnames";
 import Logo from '@/src/assets/icons/mo-logo.svg'
 import HamburgerMenuIcon from '@/src/assets/icons/menu.svg'
 import CloseIcon from '@/src/assets/icons/x.svg'
-import { socialLinks } from "../../../utils/constants";
-
-
-// Mock hook - replace with your actual useScroll hook
-const useScroll = () => {
-    const [isScrolled, setIsScrolled] = useState(false);
-
-    useEffect(() => {
-        const handleScroll = () => {
-            setIsScrolled(window.scrollY > 20);
-        };
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
-
-    return { isScrolled };
-};
-
-// Mock navigation items - replace with your actual NavbarItems
-const NavbarItems = [
-    { label: "Home", href: "/" },
-    { label: "Music", href: "/music" },
-    { label: "Tour", href: "/tour" },
-    { label: "Videos", href: "/videos" },
-    { label: "About", href: "/about" },
-    { label: "Contact", href: "/contact" }
-];
+import { NavbarItems, socialLinks } from "../../../utils/constants";
+import useScroll from "../../../utils/hooks/useScroll";
 
 const MobileHeader = () => {
     const [isShowMenu, setIsShowMenu] = useState(false);
@@ -97,20 +72,20 @@ const MobileHeader = () => {
                 {/* Animated Background with Gradient */}
                 <div className="absolute inset-0 bg-black">
                     {/* Dark grid background */}
-                    <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-[size:40px_40px] opacity-20" />
+                    <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-size-[40px_40px] opacity-20" />
 
                     {/* Noise effect */}
                     <div className="absolute inset-0 bg-[url('/noise.png')] opacity-10 mix-blend-soft-light pointer-events-none" />
 
                     {/* Glitch scanlines */}
-                    <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:100%_3px] opacity-10" />
+                    <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-size-[100%_3px] opacity-10" />
 
                     {/* Animated Audio Waves Effect */}
                     <div className="absolute inset-0 opacity-20">
                         {[...Array(5)].map((_, i) => (
                             <div
                                 key={i}
-                                className={`absolute bottom-0 w-full h-1 bg-gradient-to-r from-gray-500/40 via-gray-300/30 to-gray-500/40 ${isShowMenu ? 'animate-pulse' : ''
+                                className={`absolute bottom-0 w-full h-1 bg-linear-to-r from-gray-500/40 via-gray-300/30 to-gray-500/40 ${isShowMenu ? 'animate-pulse' : ''
                                     }`}
                                 style={{
                                     left: 0,
@@ -146,7 +121,7 @@ const MobileHeader = () => {
                                 }}
                             >
                                 <Link
-                                    href={item.href}
+                                    href={item.slug}
                                     onClick={handleToggleMenu}
                                     className="block relative group"
                                 >
