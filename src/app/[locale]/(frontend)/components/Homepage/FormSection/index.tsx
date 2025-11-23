@@ -75,9 +75,9 @@ const ContactForm = () => {
                         <div className="absolute inset-0 rounded-full bg-linear-to-br from-cyan-500/30 to-purple-500/30 animate-pulse" />
                         <Music className="w-12 h-12 text-cyan-400 animate-pulse relative z-10" />
                     </div>
-                    <h1 className="text-6xl font-bold bg-linear-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent mb-3 tracking-tight drop-shadow-lg">
+                    <h2 className="text-5xl md:text-6xl font-bold bg-linear-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent mb-3 tracking-tight drop-shadow-lg">
                         {t('title')}
-                    </h1>
+                    </h2>
                     <p className="text-gray-400 text-lg font-light">
                         {description}
                     </p>

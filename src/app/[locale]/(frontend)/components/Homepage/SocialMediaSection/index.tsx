@@ -33,7 +33,7 @@ const SocialMediaSection = () => {
             <div className="relative z-10 max-w-6xl w-full">
                 {/* Header */}
                 <div className="text-center mb-16">
-                    <h2 className="text-6xl font-bold text-white mb-4 tracking-tight">
+                    <h2 className="text-5xl md:text-6xl font-bold text-white mb-4 tracking-tight">
                         Connect With Me
                     </h2>
                     {/* Sound Rhythm Visualizer */}

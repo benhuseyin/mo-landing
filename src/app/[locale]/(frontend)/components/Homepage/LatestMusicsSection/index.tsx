@@ -84,7 +84,7 @@ const LatestReleaseSection = () => {
                         </span>
                         <div className="flex-1 h-px bg-linear-to-r from-amber-400/50 to-transparent" />
                     </div>
-                    <h2 className="text-5xl md:text-7xl font-bold mb-4">
+                    <h2 className="text-5xl md:text-6xl font-bold mb-4">
                         Latest<br />
                         <span className="text-transparent bg-clip-text bg-linear-to-r from-amber-400 via-orange-500 to-red-500">
                             Releases
@@ -110,7 +110,7 @@ const LatestReleaseSection = () => {
                                 'opacity-20': !isHovered
                             })} />
 
-                            <div className="relative aspect-square rounded-xl overflow-hidden bg-linear-to-br from-amber-900 via-red-900 to-black w-full h-[352px]">
+                            <div className="relative aspect-square rounded-xl overflow-hidden bg-linear-to-br from-amber-900 via-red-900 to-black w-full md:h-[352px]">
                                 {handleShowChoosenMusic()}
                             </div>
                         </div>
@@ -162,7 +162,7 @@ const LatestReleaseSection = () => {
                     </div>
 
                     {/* Track List */}
-                    <div className="space-y-4">
+                    <div className="space-y-4 w-full max-w-full overflow-hidden">
                         {tracks.map((track, i) => (
                             <div
                                 key={i}

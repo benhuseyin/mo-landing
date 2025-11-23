@@ -5,10 +5,8 @@ import { NavbarItems, socialLinks } from '../../utils/constants';
 import { useTranslations } from 'next-intl';
 
 
-export default function DJFooter() {
-
+const Footer = () => {
     const t = useTranslations('Layout.footer');
-
 
     return (
         <footer className="relative bg-linear-to-b from-black via-gray-900 to-black text-white overflow-hidden">
@@ -24,23 +22,23 @@ export default function DJFooter() {
                     {/* Brand Section */}
                     <div className="space-y-6">
 
-                        <Image src={Logo} alt="mahmut orhan logo" className='size-[150px]' />
+                        <Image src={Logo} alt="mahmut orhan logo" className='size-[150px] mx-auto md:mx-0' />
 
-                        <p className="text-gray-400 text-sm leading-relaxed">
+                        <p className="text-gray-400 text-sm leading-relaxed text-center sm:text-left">
                             {t('description')}
                         </p>
                     </div>
 
                     {/* Quick Links */}
                     <div className="space-y-4">
-                        <h4 className="text-lg font-semibold text-purple-400 uppercase tracking-wider">{t('menu-title')}</h4>
+                        <h4 className="text-lg font-semibold text-purple-400 uppercase tracking-wider text-center sm:text-left">{t('menu-title')}</h4>
                         <ul className="space-y-3">
                             {
                                 NavbarItems.map((item, index) => (
                                     <li key={index}>
                                         <Link
                                             href={item.slug}
-                                            className="text-gray-400 hover:text-pink-400 transition-colors duration-300 flex items-center gap-2 group"
+                                            className="text-gray-400 hover:text-pink-400 transition-colors duration-300 flex items-center gap-2 group justify-center sm:justify-start"
                                         >
                                             <span className="w-0 group-hover:w-6 h-0.5 bg-linear-to-r from-purple-500 to-pink-500 transition-all duration-300"></span>
                                             {item.label}
@@ -98,3 +96,5 @@ export default function DJFooter() {
         </footer>
     );
 }
+
+export default Footer
