@@ -27,7 +27,7 @@ export const metadata: Metadata = {
 
 
 
-export default function RootLayout({ children, params }: Props) {
+export default function RootLayout({ children }: Props) {
 
   return (
     <html lang="en">

@@ -8,7 +8,7 @@ import SectionOverlay from '../../Global/SectionOverlay';
 import { socialLinks } from '../../../utils/constants';
 
 const SocialMediaSection = () => {
-    const [hoveredIndex, setHoveredIndex] = useState<Number | null>(null);
+    const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
     return (
         <div className="relative w-full min-h-screen bg-black flex items-center justify-center p-8 overflow-hidden">

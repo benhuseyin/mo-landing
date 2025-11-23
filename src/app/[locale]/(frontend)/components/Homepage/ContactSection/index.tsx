@@ -4,8 +4,8 @@ import { useEffect, useState } from 'react';
 import { faqs } from '../../../utils/constants';
 
 const ContactSection = () => {
-    let count = 20;
-    const [activeIndex, setActiveIndex] = useState<Number>(-1);
+    const count = 20;
+    const [activeIndex, setActiveIndex] = useState<number>(-1);
     const [heights, setHeights] = useState<number[]>(Array.from({ length: count }).map(() => 20));
     const [durations, setDurations] = useState<number[]>(Array.from({ length: count }).map(() => 0.8));
 
