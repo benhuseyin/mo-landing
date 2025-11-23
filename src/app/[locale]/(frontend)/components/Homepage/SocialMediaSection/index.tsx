@@ -13,7 +13,7 @@ const SocialMediaSection = () => {
     return (
         <div
             id='social-media'
-            className="relative w-full min-h-screen bg-black flex items-center justify-center p-8 overflow-hidden">
+            className="relative w-full min-h-screen bg-black flex items-center justify-center p-8 overflow-hidden py-24">
             <Image
                 src={Bg}
                 alt="Mahmut Orhan Tour Dates Section Background Image"

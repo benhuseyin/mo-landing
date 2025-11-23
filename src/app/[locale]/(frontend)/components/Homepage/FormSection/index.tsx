@@ -52,7 +52,7 @@ const ContactForm = () => {
     return (
         <div
             id='newsletter'
-            className="min-h-screen bg-black flex items-center justify-center p-4 overflow-hidden relative py-20">
+            className="min-h-screen bg-black flex items-center justify-center p-4 overflow-hidden relative py-24">
             {/* Background visuals (same design) */}
             <div className="absolute inset-0 overflow-hidden">
                 <div className="absolute inset-0 opacity-10">
@@ -65,10 +65,7 @@ const ContactForm = () => {
                 <div className="absolute w-[500px] h-[500px] bg-purple-500/10 rounded-full blur-[100px] animate-float-slow -bottom-[150px] -right-[150px]" />
                 <div className="absolute w-[400px] h-[400px] bg-pink-500/10 rounded-full blur-[90px] animate-float-reverse top-1/3 right-1/4" />
 
-                <div className="absolute inset-0 opacity-5" style={{
-                    backgroundImage: 'linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)',
-                    backgroundSize: '50px 50px'
-                }} />
+                <div className="absolute inset-0 opacity-5" />
             </div>
 
             <div className="max-w-lg w-full relative z-10">
