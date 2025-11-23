@@ -4,7 +4,7 @@ const HeroSection = () => {
     const t = useTranslations('HomePage.hero');
 
     return (
-        <section className="relative w-full h-screen overflow-hidden">
+        <section className="relative w-full h-screen overflow-hidden" id="#hero">
             <video
                 autoPlay
                 muted

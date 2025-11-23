@@ -52,7 +52,7 @@ const LatestReleaseSection = () => {
     const currentSpotifyUrl = `https://open.spotify.com/embed/track/${tracks[activeTrack].spotifyId}?utm_source=generator&theme=0`;
 
     return (
-        <div className="min-h-screen bg-black text-white overflow-hidden relative">
+        <div id='music' className="min-h-screen bg-black text-white overflow-hidden relative">
             {/* Background effects */}
             <div
                 className="absolute inset-0 opacity-30"

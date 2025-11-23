@@ -19,19 +19,27 @@ import { User, Settings, Globe } from 'lucide-react';
 export const NavbarItems = [
     {
         label: 'HOME',
-        slug: '/'
+        slug: '#hero'
     },
     {
         label: 'DATES',
-        slug: '/'
+        slug: '#tour-dates'
     },
     {
         label: 'MUSIC',
-        slug: '/'
+        slug: '#music'
+    },
+    {
+        label: 'SOCIALS',
+        slug: '#social-media'
+    },
+    {
+        label: 'NEWSLETTER',
+        slug: '#newsletter'
     },
     {
         label: 'CONTACT',
-        slug: '/'
+        slug: '#contact'
     }
 ]
 

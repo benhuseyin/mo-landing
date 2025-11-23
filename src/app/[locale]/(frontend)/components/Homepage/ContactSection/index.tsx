@@ -16,7 +16,9 @@ const ContactSection = () => {
     }, [count]);
 
     return (
-        <div className="min-h-screen bg-black text-white p-8 flex items-center justify-center">
+        <div
+            id='contact'
+            className="min-h-screen bg-black text-white p-8 flex items-center justify-center">
             <div className="max-w-4xl w-full">
                 {/* Header with audio wave effect */}
                 <div className="text-center mb-16">

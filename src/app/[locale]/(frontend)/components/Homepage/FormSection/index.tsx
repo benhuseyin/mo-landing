@@ -50,7 +50,9 @@ const ContactForm = () => {
     };
 
     return (
-        <div className="min-h-screen bg-black flex items-center justify-center p-4 overflow-hidden relative py-20">
+        <div
+            id='newsletter'
+            className="min-h-screen bg-black flex items-center justify-center p-4 overflow-hidden relative py-20">
             {/* Background visuals (same design) */}
             <div className="absolute inset-0 overflow-hidden">
                 <div className="absolute inset-0 opacity-10">
