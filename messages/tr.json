@@ -1,5 +1,87 @@
 {
+    "Layout": {
+        "header": {
+            "first-item": "Ana Sayfa",
+            "second-item": "Tarihler",
+            "third-item": "Müzik",
+            "fourth-item": "İletişim"
+        },
+        "footer": {
+            "description": "Dünyanın dört bir yanında enerjik ritimler ve unutulmaz performanslar sunuyoruz. Turne tarihleri ve yeni yayınlar için bağlantıda kalın.",
+            "menu-title": "Hızlı Bağlantılar",
+            "right-text": " © {date} Mahmut Orhan. Tüm hakları saklıdır.",
+            "extra-description": "Elektronik müzik tutkunları için tasarlandı",
+            "policies": {
+                "first-item": "GİZLİLİK POLİTİKASI",
+                "second-item": "ÇEREZLER"
+            }
+        }
+    },
     "HomePage": {
-        "title": "Selam dünya!"
+        "hero": {
+            "title": "Mahmut Orhan",
+            "description": "Canlı Deneyim"
+        },
+        "tour": {
+            "title": "TURNE TARİHLERİ",
+            "description": "Dünyanın en ikonik mekanlarında beni canlı yakalayın",
+            "filter-description": "Bu tarihten itibaren gösteriyorsunuz:",
+            "button-show": "TÜMÜNÜ GÖSTER",
+            "button-hide": "GİZLE",
+            "tourStatus": {
+                "onSale": "Satışta",
+                "soldOut": "Tükendi",
+                "presale": "Ön Satış"
+            },
+            "cta": "Bilet Al"
+        },
+        "latest-music": {
+            "title": "MÜZİK <br></br> SON ÇIKANLAR.",
+            "description": "Mahmut Orhan’dan yeni sesleri, taze yayınları ve global iş birliklerini keşfedin."
+        },
+        "form": {
+            "title": "Ritme Katıl",
+            "description": "<span>Mahmut Orhan</span> ile bağlantıda kal",
+            "success-message": "Listedesin! Özel güncellemeler için hazır ol.",
+            "form-item": {
+                "full-name": {
+                    "label": "Ad Soyad",
+                    "placeholder": "Adınız Soyadınız"
+                },
+                "email": {
+                    "label": "E-posta",
+                    "placeholder": "E-postanız"
+                },
+                "birthday": {
+                    "label": "Doğum Günü"
+                },
+                "checkbox": {
+                    "label": "Mahmut Orhan’dan etkinlik ve yeni yayın bilgileri almak istiyorum; dilediğim zaman gelen e-postalardaki abonelikten çık bağlantısıyla iptal edebilirim."
+                },
+                "button": {
+                    "label": "Gönder",
+                    "loading-text": "Abone olunuyor..."
+                }
+            },
+            "respect-text": "Gizliliğinize saygı duyuyoruz ve spam göndermeyiz"
+        },
+        "faq": {
+            "title": "İLETİŞİM",
+            "first-item": {
+                "question": "BOOKING İLETİŞİM — Kuzey Amerika, Güney Amerika, Avustralya, Yeni Zelanda",
+                "answer": "alex.becket@caa.com"
+            },
+            "second-item": {
+                "question": "BOOKING İLETİŞİM — Diğer Bölgeler",
+                "answer": "MDSmith@wmeagency.com"
+            },
+            "third-item": {
+                "question": "YÖNETİM",
+                "answer": "Marka anlaşmaları için azizfiratacar@robinmusicagency.com adresinden bize ulaşabilirsiniz"
+            }
+        }
+    },
+    "DatePicker": {
+        "placeholder": "Tarih Seç"
     }
 }

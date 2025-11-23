@@ -5,6 +5,7 @@ import Image from "next/image";
 
 import ChevronDownIcon from '@/src/assets/icons/chevron-down.svg'
 import classNames from "classnames";
+import { useTranslations } from "next-intl";
 
 type Props = {
     value?: string | null; // ISO string "YYYY-MM-DD"
@@ -59,11 +60,15 @@ export default function DatePicker({
     value = null,
     onChange,
     className,
-    placeholder = "Select Date",
+    placeholder,
     minYear,
     maxYear,
     disabled = false,
 }: Props) {
+    const t = useTranslations('DatePicker');
+
+    placeholder = t('placeholder')
+
     const today = new Date();
     const currentYear = today.getFullYear();
 

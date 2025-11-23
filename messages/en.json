@@ -32,7 +32,8 @@
                 "onSale": "On Sale",
                 "soldOut": "Sold Out",
                 "presale": "Presale"
-            }
+            },
+            "cta": "Get Ticket"
         },
         "latest-music": {
             "title": "MUSIC <br></br> LATEST RELEASE.",
@@ -79,5 +80,8 @@
                 "answer": "For brand deals you can reach us at azizfiratacar@robinmusicagency.com"
             }
         }
+    },
+    "DatePicker": {
+        "placeholder": "Select Date"
     }
 }

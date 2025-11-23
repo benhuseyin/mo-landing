@@ -17,7 +17,7 @@ interface Props {
 
 const CardItem = ({ item }: Props) => {
 
-    const t = useTranslations("HomePage.tour.tourStatus");
+    const t = useTranslations("HomePage.tour");
     const locale = useLocale();
 
 
@@ -37,7 +37,7 @@ const CardItem = ({ item }: Props) => {
                                 "bg-success text-primary": item.status === TourDateStatus.ON_SALE
                             })}
                         >
-                            {t(item.status)}
+                            {t(`tourStatus.${item.status}`)}
                         </span>
                     </div>
 
@@ -54,7 +54,7 @@ const CardItem = ({ item }: Props) => {
                     className="bg-success/50 hover:shadow-glow transition-all w-full"
                     disabled={item.status === TourDateStatus.SOLD_OUT}
                 >
-                    Get Tickets
+                    {t('cta')}
                     <Image src={ExternalLink} alt="external-link" className="w-4 h-4 ml-2 invert" />
                 </Button>
             </CardParent>
