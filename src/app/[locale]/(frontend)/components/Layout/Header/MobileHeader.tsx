@@ -33,7 +33,6 @@ const MobileHeader = () => {
 
     return (
         <Fragment>
-            {/* Header Bar */}
             <header
                 className={classNames(
                     'fixed md:hidden top-0 left-1/2 -translate-x-1/2 w-[370px] max-w-6xl z-50 py-2',
@@ -55,19 +54,22 @@ const MobileHeader = () => {
                     </Link>
 
                     {/* Hamburger Button */}
-                    <Image src={HamburgerMenuIcon} alt="hamburger-icon" className={classNames("w-6 h-6 invert animate-fade-in", {
-                        'hidden': isShowMenu
-                    })} onClick={handleToggleMenu} />
-                    <Image src={CloseIcon} alt="close-icon" className={classNames("w-6 h-6 invert hidden", {
-                        '!flex animate-fade-in': isShowMenu
-                    })} onClick={handleToggleMenu} />
+                    <Image src={HamburgerMenuIcon} alt="hamburger-icon"
+                        className={classNames("w-6 h-6 invert animate-fade-in", {
+                            'hidden': isShowMenu
+                        })} onClick={handleToggleMenu} />
+                    <Image src={CloseIcon} alt="close-icon"
+                        className={classNames("w-6 h-6 invert hidden", {
+                            '!flex animate-fade-in': isShowMenu
+                        })} onClick={handleToggleMenu} />
                 </div>
             </header>
 
             {/* Full Screen Menu Overlay */}
             <div
-                className={`fixed inset-0 z-40 transition-all duration-700 ${isShowMenu ? 'opacity-100 visible' : 'opacity-0 invisible'
-                    }`}
+                className={classNames("fixed inset-0 z-40 transition-all duration-700 opacity-0 invisible", {
+                    "opacity-100 visible": isShowMenu,
+                })}
             >
                 {/* Animated Background with Gradient */}
                 <div className="absolute inset-0 bg-black">
@@ -85,8 +87,9 @@ const MobileHeader = () => {
                         {[...Array(5)].map((_, i) => (
                             <div
                                 key={i}
-                                className={`absolute bottom-0 w-full h-1 bg-linear-to-r from-gray-500/40 via-gray-300/30 to-gray-500/40 ${isShowMenu ? 'animate-pulse' : ''
-                                    }`}
+                                className={classNames("absolute bottom-0 w-full h-1 bg-linear-to-r from-gray-500/40 via-gray-300/30 to-gray-500/40", {
+                                    "animate-pulse": isShowMenu
+                                })}
                                 style={{
                                     left: 0,
                                     bottom: `${i * 20}%`,
@@ -98,8 +101,11 @@ const MobileHeader = () => {
                     </div>
 
                     {/* Vinyl Record Effect */}
-                    <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 rounded-full border-4 border-gray-600/20 transition-all duration-1000 ${isShowMenu ? 'rotate-180 scale-100' : 'rotate-0 scale-50'
-                        }`}>
+                    <div
+                        className={classNames("absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 rounded-full border-4 border-gray-600/20 transition-all duration-1000 rotate-0 scale-50", {
+                            "rotate-180 scale-100": isShowMenu,
+                        })}
+                    >
                         <div className="absolute inset-8 rounded-full border-2 border-gray-600/10" />
                         <div className="absolute inset-16 rounded-full border-2 border-gray-600/10" />
                         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 rounded-full bg-black border-2 border-gray-500/30" />
@@ -112,10 +118,9 @@ const MobileHeader = () => {
                         {NavbarItems.map((item, index) => (
                             <li
                                 key={index}
-                                className={`transform transition-all duration-500 ${isShowMenu
-                                    ? 'translate-x-0 opacity-100'
-                                    : '-translate-x-full opacity-0'
-                                    }`}
+                                className={classNames("transform transition-all duration-500 -translate-x-full opacity-0", {
+                                    "translate-x-0 opacity-100": isShowMenu
+                                })}
                                 style={{
                                     transitionDelay: isShowMenu ? `${index * 100}ms` : '0ms'
                                 }}
