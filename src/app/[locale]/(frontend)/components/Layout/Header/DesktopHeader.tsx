@@ -5,8 +5,8 @@ import Image from 'next/image';
 import Logo from '@/src/assets/icons/mo-logo.svg';
 
 import classNames from 'classnames';
-import { NavbarItems } from '../../../utils/constants';
 import useScroll from '../../../utils/hooks/useScroll';
+import { navbarItems } from '../../../utils/constants';
 
 const DesktopHeader = () => {
     const { isScrolled } = useScroll();
@@ -35,7 +35,7 @@ const DesktopHeader = () => {
                 {/* Navigation */}
                 <nav aria-label="Main Navigation">
                     <ul className="flex gap-8 text-white uppercase tracking-wide">
-                        {NavbarItems.map((item, key) => (
+                        {navbarItems.map((item, key) => (
                             <li key={key}>
                                 <Link href={item.slug}>{item.label}</Link>
                             </li>

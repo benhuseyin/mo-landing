@@ -16,7 +16,8 @@ import YoutubeWhite from '@/src/assets/icons/youtube-white.svg'
 
 import { User, Settings, Globe } from 'lucide-react';
 
-export const NavbarItems = [
+
+export const navbarItems = [
     {
         label: 'HOME',
         slug: '#hero'

@@ -8,7 +8,7 @@ import classNames from "classnames";
 import Logo from '@/src/assets/icons/mo-logo.svg'
 import HamburgerMenuIcon from '@/src/assets/icons/menu.svg'
 import CloseIcon from '@/src/assets/icons/x.svg'
-import { NavbarItems, socialLinks } from "../../../utils/constants";
+import { navbarItems, socialLinks } from "../../../utils/constants";
 import useScroll from "../../../utils/hooks/useScroll";
 
 const MobileHeader = () => {
@@ -115,7 +115,7 @@ const MobileHeader = () => {
                 {/* Menu Content */}
                 <nav className="relative h-full flex flex-col justify-center items-center ">
                     <ul className="space-y-2 w-full max-w-xs mb-20">
-                        {NavbarItems.map((item, index) => (
+                        {navbarItems.map((item, index) => (
                             <li
                                 key={index}
                                 className={classNames("transform transition-all duration-500 -translate-x-full opacity-0", {

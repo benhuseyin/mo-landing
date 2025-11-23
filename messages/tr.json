@@ -6,6 +6,14 @@
             "third-item": "Müzik",
             "fourth-item": "İletişim"
         },
+        "navbar": {
+            "home": "ANA SAYFA",
+            "dates": "TARİHLER",
+            "music": "MÜZİK",
+            "socials": "SOSYAL MEDYA",
+            "newsletter": "BÜLTEN",
+            "contact": "İLETİŞİM"
+        },
         "footer": {
             "description": "Dünyanın dört bir yanında enerjik ritimler ve unutulmaz performanslar sunuyoruz. Turne tarihleri ve yeni yayınlar için bağlantıda kalın.",
             "menu-title": "Hızlı Bağlantılar",

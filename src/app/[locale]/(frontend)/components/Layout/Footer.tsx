@@ -1,8 +1,8 @@
 import Image from 'next/image';
 import Logo from '@/src/assets/icons/mo-logo.svg'
 import Link from 'next/link';
-import { NavbarItems, socialLinks } from '../../utils/constants';
 import { useTranslations } from 'next-intl';
+import { navbarItems, socialLinks } from '../../utils/constants';
 
 
 const Footer = () => {
@@ -34,7 +34,7 @@ const Footer = () => {
                         <h4 className="text-lg font-semibold text-purple-400 uppercase tracking-wider text-center sm:text-left">{t('menu-title')}</h4>
                         <ul className="space-y-3">
                             {
-                                NavbarItems.map((item, index) => (
+                                navbarItems.map((item, index) => (
                                     <li key={index}>
                                         <Link
                                             href={item.slug}
