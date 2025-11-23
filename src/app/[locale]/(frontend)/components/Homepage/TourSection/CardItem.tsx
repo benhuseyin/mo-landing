@@ -9,7 +9,7 @@ import { item } from "@/src/types";
 import classNames from "classnames";
 import { TourDateStatus } from "@/src/types/enums";
 import { formatDate } from "../../../utils/helpers/functions";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 
 interface Props {
     item: item;
@@ -18,6 +18,8 @@ interface Props {
 const CardItem = ({ item }: Props) => {
 
     const t = useTranslations("HomePage.tour.tourStatus");
+    const locale = useLocale();
+
 
     return (
         <CardWrapper>
@@ -26,7 +28,7 @@ const CardItem = ({ item }: Props) => {
                     <div className="flex w-full justify-between">
                         <div className="flex gap-x-2.5 text-primary font-semibold">
                             <Image src={Calendar} alt="calendar-icon" className="w-5 h-5 invert" />
-                            <span className="font-display text-lg">{formatDate(item.date)}</span>
+                            <span className="font-display text-lg">{formatDate(item.date, locale)}</span>
                         </div>
                         <span
                             className={classNames('px-3 py-1 rounded-full text-sm font-semibold', {

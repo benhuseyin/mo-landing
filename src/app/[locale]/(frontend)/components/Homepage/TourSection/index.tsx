@@ -19,12 +19,14 @@ import { formatDate } from "../../../utils/helpers/functions";
 
 import XIcon from '@/src/assets/icons/x.svg'
 import classNames from "classnames";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { tourDates } from "../../../utils/constants";
 import SectionHeader from "../../Global/SectionHeader";
 
 const TourSection = () => {
     const t = useTranslations('HomePage.tour');
+    const locale = useLocale();
+
 
     const timeoutRef = useRef<number | null>(null);
 
@@ -131,7 +133,7 @@ const TourSection = () => {
                                 </Button>
                             }
                         </div>
-                        {dateIso && <p className="text-center sm:text-left text-sm pl-1">{t('filter-description')} <span className="font-bold underline underline-offset-4 block sm:inline-block">{formatDate(dateIso)}</span></p>}
+                        {dateIso && <p className="text-center sm:text-left text-sm pl-1">{t('filter-description')} <span className="font-bold underline underline-offset-4 block sm:inline-block">{formatDate(dateIso, locale)}</span></p>}
                     </div>
 
                 </div>
