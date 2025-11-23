@@ -1,11 +1,6 @@
 "use client"
 import { useState, useRef } from 'react';
-import Image from 'next/image';
 
-import AppleIcon from '@/src/assets/icons/apple-music.svg'
-import YoutubeIcon from '@/src/assets/icons/youtube-icon.svg'
-import SpotifyIcon from '@/src/assets/icons/spotify-icon.svg'
-import SoundcloudIcon from '@/src/assets/icons/soundcloud-icon.svg'
 import { latestReleaseSocialMediaItems, tracks } from '../../../utils/constants';
 import classNames from 'classnames';
 import { twMerge } from 'tailwind-merge';

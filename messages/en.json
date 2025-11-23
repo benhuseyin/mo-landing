@@ -18,7 +18,10 @@
         }
     },
     "HomePage": {
-        "title": "Hello world!",
+        "hero": {
+            "title": "Mahmut Orhan",
+            "description": "Live Experience"
+        },
         "tour": {
             "title": "TOUR DATES",
             "description": "Catch me live at the world's most iconic venues",
