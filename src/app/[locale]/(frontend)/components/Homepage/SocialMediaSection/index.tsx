@@ -89,7 +89,7 @@ const SocialMediaSection = () => {
                                         </div>
 
                                         {/* Platform Name */}
-                                        <span className="text-white font-semibold text-lg tracking-wide group-hover:text-transparent group-hover:bg-linear-to-r group-hover:bg-clip-text group-hover:from-white group-hover:to-gray-300 transition-all duration-500">
+                                        <span className="text-xs text-center sm:text-lg text-white font-semibold tracking-wide group-hover:text-transparent group-hover:bg-linear-to-r group-hover:bg-clip-text group-hover:from-white group-hover:to-gray-300 transition-all duration-500 w-full">
                                             {social.name}
                                         </span>
                                     </div>
